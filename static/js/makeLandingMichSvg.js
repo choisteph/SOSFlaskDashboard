@@ -2,7 +2,6 @@ let width = 400;
 let height = width;
 
 //Create SVG element and append map to the SVG
-
 let michEms = d3.select("#michEms")
     .append("svg")
     .attr("width", width)
@@ -14,7 +13,7 @@ let michMe = d3.select('#michMe')
     .attr('height', height);
 
 // Load topojson data
-async function makeMichMap(svgname, filename) {
+async function makeMichMap(svgname, filename, ME=false) {
     // Read in County Data
     const DATA = await d3.csv(filename, type);
     let counties = new Map();
@@ -22,11 +21,9 @@ async function makeMichMap(svgname, filename) {
     const TOTAL = DATA.reduce((total,d) => total + d.value, 0)
 
     if (svgname === michEms){
-        d3.select('#totalEms')
-        .text(`Year-to-Date EMS Incidents: ${TOTAL}`)
+        d3.select('#totalEms').text(`Year-to-Date EMS Incidents: ${TOTAL}`)
     } else {
-        d3.select('#totalMe')
-        .text(`Year-to-Date ME Incidents: ${TOTAL}`)
+        d3.select('#totalMe').text(`Year-to-Date ME Incidents: ${TOTAL}`)
     }    
 
     let tooltipDiv = d3.select('.mich')
@@ -49,16 +46,18 @@ async function makeMichMap(svgname, filename) {
 
     // Bind the data to the SVG and create one path per GeoJSON feature
     svgname.selectAll("path")
-        .data(MIgeo.features)
-        .enter().append("path")
+      .data(MIgeo.features)
+      .enter().append("path")
         .attr('class','county')
         .attr("d", path)
         .attr("id", "tooltips")
         .attr("data-toggle", "tooltip")
         .attr("title", d => {
             const name = d.properties.name
-            return name + ': ' + counties.get(name)
+            const value = (!ME || MEcounties.includes(name)) ? ': ' + counties.get(name) : ''
+            return name + value
         })
+        .style('fill', d => !ME || MEcounties.includes(d.properties.name) ? null : "url(#stripes)")
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })

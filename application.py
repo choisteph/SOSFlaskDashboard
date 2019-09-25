@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from opioid_dict import src_dict, center_dict, special_dict, counties, names
+from opioid_dict import src_dict, center_dict, special_dict, counties, names, MEcounties
 from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -80,7 +80,8 @@ def unauthorized():
 
 @application.route('/')
 def landing():
-    return render_template('landing.html')
+    data = {'MEcounties': MEcounties}
+    return render_template('landing.html', data=data)
 
 @application.route('/search', methods=['GET'])
 @login_required

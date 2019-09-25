@@ -1,5 +1,16 @@
 from collections import defaultdict
 
+MEcounties = ['Allegan','Barry','Benzie','Berrien','Branch',
+    'Calhoun','Cass','Cheboygan','Chippewa','Clare',
+    'Crawford','Dickinson','Eaton','Emmet','Grand Traverse',
+    'Gratiot','Hillsdale','Huron','Ingham','Ionia',
+    'Iron','Isabella','Kalamazoo','Kent','Lake',
+    'Leelanau','Lenawee','Livingston','Manistee','Mason',
+    'Mecosta','Missaukee','Montcalm','Muskegon','Newaygo',
+    'Osceola','Ottawa','Roscommon','Saginaw','Shiawassee',
+    'St. Joseph','Tuscola','Van Buren','Washtenaw','Wayne',
+    'Wexford']
+
 src_dict = {'EMS':'EMS', 'ED':'Emergency Departments', 'ME':'Medical Examiner'}
 race_dict = {'B':'Black',
              'African American':'Black',

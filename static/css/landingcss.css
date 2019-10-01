@@ -6,7 +6,8 @@
 }
 
 .container-top-buffer {
-    margin-top:50px;
+    margin-top: 25px;
+    padding: 0px;
   }
   
 h2{
@@ -59,7 +60,7 @@ path.county:hover{
     display: inline-block;
     height: 50px;
 }
-.isIpc{
+.is{
     background-color: white;
     margin: 20px;
     display: inline-block;
@@ -100,21 +101,30 @@ path.county:hover{
 header{
     background-color: #00274c;
 }
-.mainlogo{
-    display: block;
-    margin: 5px;
-    height: 100px;
+
+header .row{
+    padding: 10px 0px;
+}
+
+.row{
+    width: inherit !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+.topIPC{
+    height: 50px;
 }
 
 .topSOS{
-    display: inline-block;
+
     margin: 5px;
-    height: 220px;
+    height: 150px;
 }
 .topHIDTA{
-    display: inline-block;
+
     margin: 5px;
-    height: 120px;
+    height: 100px;
 }
 
 .mapbg{
@@ -128,27 +138,49 @@ h6{
 .whatInfo{
     padding-top: 15px;
 }
+
 footer{
+    position: absolute;
+    bottom:0;
+    background-color: #00274c;
+    width: 100vw;
+}
+.footer{
     background-color: #00274c !important;
+    width: inherit;
 }
 
-footer a{
-    color: white;
-    padding: 2px;
-}
-footer a:hover{
-    font-weight: bold;
-}
-footer p{
+.footer p{
     color: white;
 }
 
 .footer{
     position: fixed;
     bottom: 0;
-    height: 10px;
 }
 
 .logosontop{
     padding-top: 50px;
+}
+
+.navbar-nav li{
+    list-style: none !important;
+    padding-right: 10px;
+}
+
+.navbar-nav li:hover{
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.otherlogos{
+    display: inline-block;
+}
+
+header{
+    background-color: #00274c;
+}
+
+.allstuff{
+    padding: 5px;
 }

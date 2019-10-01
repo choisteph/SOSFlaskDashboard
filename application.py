@@ -83,6 +83,15 @@ def landing():
     data = {'MEcounties': MEcounties}
     return render_template('landing.html', data=data)
 
+@application.route('/about')
+def about():
+    return render_template('about.html')
+
+@application.route('/contact')
+def contact():
+
+    return render_template('contact.html')
+
 @application.route('/search', methods=['GET'])
 @login_required
 def searchpage():

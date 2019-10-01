@@ -1,8 +1,14 @@
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
 .content{
     padding-top: 0px;
 }
 .navbar{
     background-color: #00274c;
+}
+span{
+    color: white;
 }
 
 .container-top-buffer {
@@ -25,6 +31,9 @@ h3{
 
 }
 
+.welcome h2{
+    font-weight: 400;
+}
 .introduction{
     font-size: 18px;
 }
@@ -183,4 +192,28 @@ header{
 
 .allstuff{
     padding: 5px;
+}
+
+.countbox-ems{
+    border: 2px solid #587abc;
+    padding: 5px;
+    margin: 5px;
+}
+
+.countbox-me{
+    border: 2px solid #575294;
+    padding: 5px;
+    margin: 5px;
+}
+
+.mapbg h5{
+    font-weight: bold;
+}
+
+.mapbg h6{
+    font-weight: normal;
+}
+
+.current{
+    font-weight: bold;
 }

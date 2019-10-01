@@ -1,11 +1,25 @@
+*{
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container-top-buffer{
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+}
 .countynames {
   padding-top: 10px !important;
 }
 
+.content{
+  padding-top: 15px;
+}
 .onemap {
   padding-bottom: 20px;
 }
-
+.content svg{
+  width: inherit;
+}
 .tallerpage {
   height: 200px;
 }
@@ -33,8 +47,11 @@ p a:focus {
 }
 
 .radios {
-  margin: 20px;
+  padding: 20px;
   font-size: 20px;
+}
+.datasourceselect{
+  padding-bottom: 10px;
 }
 
 .form-check-inline {
@@ -47,6 +64,7 @@ p a:focus {
 
 .onemap {
   padding-bottom: 20px;
+  width: inherit;
 }
 
 .EMS.county {
@@ -80,7 +98,7 @@ circle.city {
 }
 
 .formthing input {
-  width: 500px !important;
+  width: 450px !important;
   height: 50px !important;
 }
 
@@ -102,7 +120,7 @@ form .autocomplete-items {
   border-bottom: none;
   border-top: none;
   z-index: 99;
-  width: 500px;
+  width: 450px;
   top: 100%;
 }
 
@@ -122,10 +140,30 @@ form .autocomplete-items {
   color: white;
 }
 
-@media screen and (min-width:700px){
-.row.content{
-  padding-top: 0px;
+nav span{
+  color: white;
 }
-.sidebuff{
-  height: auto;
+
+h5{
+  padding: 5px 0px;
+}
+
+footer{
+  position: relative;
+  /* bottom:0; */
+  background-color: #00274c;
+  width: 100vw;
+}
+.footer{
+  background-color: #00274c !important;
+  width: inherit;
+}
+
+.footer p{
+  color: white;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
 }

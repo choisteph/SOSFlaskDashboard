@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>SOS Reports</title>
+  <title>SOS Authorized User Dashboard</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,6 +26,9 @@
 
   <!-- searchpage michigan-->
   <link rel="stylesheet" href="/static/css/michigan.css">
+
+  <!--Google Fonts Noto Sans-->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -42,71 +45,51 @@
 
   <div class="container-fluid container-top-buffer">
     <div class="row content">
-      <div class="col-sm-1 sidebuff"></div>
 
-      <div class="col-sm-10 top-buffer center-align">
-        <h2 class="header text-center">S.O.S. Dashboard</h2>
+      <div class="col-sm-12 top-buffer center-align">
+        <h2 class="header text-center">SOS Authorized User Dashboard</h2>
         <div class="container">
-
           <div class="row content">
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-6 d-flex justify-content-center">
               <div class="onemap" id="onemap"></div>
             </div>
-          </div>
-
-          <div class = "row content">
-            <div class = "col-sm-12 text-center">
-              <h4>Please select data source:</h4>
-            </div>
-          </div>
-
-          <div class="row content">
-            <div class="col-sm-12 d-flex justify-content-center">
-              <div class="form-check form-check-inline radios"  id = "radios">
-                <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange = "updateGlobal(this)" checked> EMS
+            <div class="col-sm-6">
+                <div class="row datasourceselect">
+                    <div class="col-sm-12 d-flex justify-content-center align-items-center">
+                      <h5 class="text-center">Please Select Data Source:</h5>
+                      <div class="form-check form-check-inline radios"  id = "radios">
+                        <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange = "updateGlobal(this)" checked> EMS
+                      </div>
+                      <div class="form-check form-check-inline radios">
+                        <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange = "updateGlobal(this)"> ME
+                      </div>
+                    </div>
+                  </div>
+              <div class = "row search">
+                  <div class="col-sm-12 d-flex justify-content-center align-self-center">
+                    <form class = "form-inline formthing" onsubmit="return navPlace()">
+                      <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>
               </div>
-              <!-- <div class="form-check form-check-inline radios">
-                <input class="form-check-input" type="radio" name="Radio" id="EDRadio" value="ED" onchange = "updateGlobal(this)"> ED
-              </div> -->
-              <div class="form-check form-check-inline radios">
-                <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange = "updateGlobal(this)"> ME
-              </div>
             </div>
           </div>
-
-          <div class = "row content">
-            <div class="col-sm-12 d-flex justify-content-center">
-              <form class = "form-inline formthing" onsubmit="return navPlace()">
-                <input class="form-control autocomplete" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </div>
-          </div>
-          <div class = "row content">
-            <div class="col-sm-12 tallerpage"></div>
-          </div>
-
         </div>
       </div>
-      <div class="col-sm-1 sidebuff"></div>
     </div>
   </div>
-  </div>
+
   <!-- footer -->
-  <footer class="footer d-print-none">
-    <div class="footstyle container-fluid text-center">
-      <div class="row text-center">
-        {% for thing in ["Links", "Contact","Help"] %}
-          <div class="col-sm-4 text-center">
-            <h4>{{ thing }}</h4>
-            <div class="list-group">
-              <li class="list-group-item"><a class="footlink" href="#">About the data</a></li>
-              <li class="list-group-item"><a class="footlink" href="#">About this site</a></li>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-12 text-right d-flex justify-content-end">
+              <p>Copyright &copy 2019 The Regents of the University of Michigan</p>
             </div>
-          </div>
-        {% endfor %}
-      </div>
+        </div>
     </div>
+</footer>
   <!-- scripts -->
   <script src= "/static/js/makeSearchMichSvg.js"></script>
   <script src= "/static/js/autocomplete.js"></script>

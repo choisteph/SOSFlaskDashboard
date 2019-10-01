@@ -32,10 +32,11 @@
 </head>
 
 <body>
+  <script>  var cities = {{citylst | safe}}</script>
   <nav class="navbar navbar-expand-sm fixed-top d-print-none">
     <div class = "container-fluid">
       <div class = "navbar-header">
-          <a class="navbar-brand" href="/search">SOS Michigan Opioid Epidemic Dashboard</a>
+          <a class="navbar-brand" href="/search">SOS Authorized User Dashboard</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
           <li class = "signout"><a href = "/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -45,35 +46,36 @@
 
   <div class="container-fluid container-top-buffer">
     <div class="row content">
-
-      <div class="col-sm-12 top-buffer center-align">
+      <div class="col-sm-12 bodystuff">
         <h2 class="header text-center">SOS Authorized User Dashboard</h2>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row content">
+              <div class="col-sm-6">
+                  <div class="row datasourceselect">
+                      <div class="col-sm-12 d-flex justify-content-center align-items-center">
+                        <h5 class="text-center">Please Select Data Source:</h5>
+                        <div class="form-check form-check-inline radios"  id = "radios">
+                          <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange = "updateGlobal(this)" checked> EMS
+                        </div>
+                        <div class="form-check form-check-inline radios">
+                          <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange = "updateGlobal(this)"> ME
+                        </div>
+                      </div>
+                    </div>
+                <div class = "row search">
+                    <div class="col-sm-12 d-flex justify-content-center align-self-center">
+                      <form class = "form-inline formthing" onsubmit="navPlace()">
+                        <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                      </form>
+                    </div>
+                </div>
+                
+              </div>
             <div class="col-sm-6 d-flex justify-content-center">
               <div class="onemap" id="onemap"></div>
             </div>
-            <div class="col-sm-6">
-                <div class="row datasourceselect">
-                    <div class="col-sm-12 d-flex justify-content-center align-items-center">
-                      <h5 class="text-center">Please Select Data Source:</h5>
-                      <div class="form-check form-check-inline radios"  id = "radios">
-                        <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange = "updateGlobal(this)" checked> EMS
-                      </div>
-                      <div class="form-check form-check-inline radios">
-                        <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange = "updateGlobal(this)"> ME
-                      </div>
-                    </div>
-                  </div>
-              <div class = "row search">
-                  <div class="col-sm-12 d-flex justify-content-center align-self-center">
-                    <form class = "form-inline formthing" onsubmit="return navPlace()">
-                      <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text">
-                      <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                  </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -82,7 +84,12 @@
 
   <!-- footer -->
   <footer class="footer mt-auto py-3">
-    <div class="container">
+    <div class="container-fluid">
+      <div class="row logos d-flex align-items-center justify-content-around">
+          <img class="bottomIPC" src="/static/images/IPC.png">
+          <img class="bottomSOS" src="/static/images/SOS.png">
+          <img class="bottomHIDTA" src="/static/images/hidta.png">
+      </div>
       <div class="row">
           <div class="col-sm-12 text-right d-flex justify-content-end">
               <p>Copyright &copy 2019 The Regents of the University of Michigan</p>

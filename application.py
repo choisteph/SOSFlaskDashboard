@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from opioid_dict import src_dict, center_dict, special_dict, counties, names, MEcounties
+from opioid_dict import src_dict, center_dict, special_dict, counties, names, MEcounties, cities
 from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -96,7 +96,8 @@ def contact():
 @login_required
 def searchpage():
     data = {'placenames': list(chain.from_iterable(names.values()))}
-    return render_template("search.html", data=data)
+    citylst = cities
+    return render_template("search.html", data=data, citylst = citylst)
 
 @application.route('/dashboard', methods=['GET'])
 @login_required

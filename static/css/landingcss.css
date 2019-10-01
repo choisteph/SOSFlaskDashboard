@@ -126,9 +126,8 @@ header .row{
 }
 
 .topSOS{
-
     margin: 5px;
-    height: 150px;
+    height: 100px;
 }
 .topHIDTA{
 
@@ -216,4 +215,8 @@ header{
 
 .current{
     font-weight: bold;
+}
+footer .container{
+    padding: 0px !important;
+    margin: 0px !important;
 }

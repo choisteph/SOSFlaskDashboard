@@ -3,9 +3,12 @@
 }
 
 .container-top-buffer{
-  position: relative;
-  padding: 0px;
-  margin: 0px;
+  margin-top: 60px;
+
+}
+
+.container .row{
+  width: inherit;
 }
 .countynames {
   padding-top: 10px !important;
@@ -42,8 +45,16 @@ p a:focus {
   margin-bottom: 10px;
 }
 
+.bodystuff{
+  padding: 0px;
+  margin: 0px;
+}
+
 .county {
   fill: #9b9a6d;
+}
+.col-sm-6{
+  padding: 0px;
 }
 
 .radios {
@@ -51,11 +62,16 @@ p a:focus {
   font-size: 20px;
 }
 .datasourceselect{
+  width: inherit;
   padding-bottom: 10px;
 }
 
 .form-check-inline {
   margin: 20px;
+}
+
+.search{
+  width: inherit;
 }
 
 #ED {
@@ -125,10 +141,11 @@ form .autocomplete-items {
 }
 
 .autocomplete-items div {
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
+  
 }
 
 /*when hovering an item:*/
@@ -166,4 +183,20 @@ footer{
 .footer{
   position: fixed;
   bottom: 0;
+}
+
+.bottomIPC{
+  height: 30px;
+}
+
+.bottomSOS{
+  height: 70px;
+}
+
+.bottomHIDTA{
+  height: 70px;
+}
+
+.logos{
+  padding-bottom: 10px;
 }

@@ -28,10 +28,11 @@
 
 .content {
   height: 100%;
+  position: relative;
 }
 
 .srcbutton{
-  background-color: black !important;
+  background-color: inherit !important;
   color: white !important;
   border: none;
 }
@@ -218,32 +219,6 @@ h2 {
   height: 100%;
 }
 
-.footstyle {
-  background-color: black;
-  color: white;
-}
-
-.footer .list-group {
-  background-color: transparent;
-}
-
-.footer .list-group-item {
-  font-size: 16px;
-  display: block;
-  padding: 10px;
-  background-color: transparent;
-}
-
-.footlink {
-  color: white;
-  text-decoration: underline;
-  margin: 5px;
-}
-
-.footlink:hover {
-  font-weight: bold;
-}
-
 div.sticky-top {
   background-color: white;
   top: 50px;
@@ -321,6 +296,44 @@ div.sticky-top {
   display: inline-block;
   height: 20px;
 }
+
+nav span{
+  color: white;
+}
+
+
+.footer{
+  padding-top: 100px;
+  position: relative;
+  background-color: #00274c !important;
+  width: 100%;
+}
+
+.footer p{
+  color: white;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+}
+
+.bottomIPC{
+  height: 30px;
+}
+
+.bottomSOS{
+  height: 70px;
+}
+
+.bottomHIDTA{
+  height: 70px;
+}
+
+.logos{
+  padding-bottom: 10px;
+}
+
 
 @media screen and (min-width:700px) {
   .sidenav {

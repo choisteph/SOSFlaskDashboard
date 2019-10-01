@@ -1,7 +1,7 @@
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background-color: black;
+  background-color: #00274c;
 }
 
 .navbar a:hover {
@@ -51,7 +51,7 @@
   height: inherit;
 }
 
-.footer {
+body >.footer {
   position: absolute;
   background-color: black;
   right: 0;

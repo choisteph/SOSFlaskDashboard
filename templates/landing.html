@@ -34,46 +34,43 @@
   <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
   <header>
-    <!-- cool image, perhaps -->
+
   </header>
 
   <!-- top navigation -->
+
+  
   <nav class="navbar navbar-expand-sm fixed-top d-print-none">
     <div class = "container-fluid">
-      <div class = "navbar-header">
-          <a class="navbar-brand" href="/">SOS Michigan Opioid Epidemic Dashboard</a>
+      <div class = "navbar-header mr-auto d-flex">
+          <div class="container">
+              <div class = "row">
+                <div class = "col-sm-12 d-flex flex-row justify-content-between align-items-center">
+                    <div class = "mainlogo">
+                        <img src= "/static/images/IPC.png">
+                    </div>
+                    <div class = "otherlogos">
+                        <img class="topSOS" src = "/static/images/SOS.png"></img>
+                        <img class = "topHIDTA" src = "/static/images/hidta.png"></img>
+                    </div>
+                </div>
+              </div>
+            </div>
+
       </div>
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href = "/login"><span class="fa fa-sign-in"></span> Login</a></li>
-      </ul>
      </div>
   </nav>
 
   <div class="container-fluid container-top-buffer">
     <div class="row">
-      <div class="col-sm-1 sidebuff"></div>
-      <div class = "col-sm-10">
+      <div class = "col-sm-12">
         <div class= "row content">
           <div class = "col-sm-12">
-            <div class = "row logosontop">
-              <div class = "col-sm-12 d-flex justify-content-between align-items-center">
-                  <a href="https://injurycenter.umich.edu/" target="_blank"><img class="topIPC" src = "/static/images/IPC.png"></img></a>
-                  <img class = "topHIDTA" src = "/static/images/hidta.png"></img>
-              </div>
-            </div>
+           
             <div class="welcome">
               <h2>Welcome to System for Opioid Overdose Surveilance</h2>
             </div>
-            <div class = "whatsSOS">
-                <h3>What is SOS?</h3>
-                <div class = "row">
-                  <div class = "col-sm-2"></div>
-                  <div class = "col-sm-8">
-                      <p class = "introduction"><b>SOS</b> is a near real-time opioid overdose surveillance system created through a partnership between the <b><a href = "https://injurycenter.umich.edu/" target="_blank">University of Michigan Injury Prevention Center</a></b>  and <b>Michigan High Intensity Drug Trafficking Areas (HIDTA)</b>. SOS provides near real-time mapping of <b>non-fatal </b>and  <b>fatal</b> overdose cases, as well as aggregate data briefs, to facilitate timely public health and public safety responses. </p>
-                  </div>
-                  <div class = "col-sm-2"></div>
-                </div>
-            </div>
+
            <div class = "row mapbg">
 
              <div class = "row incidentcount">
@@ -108,62 +105,26 @@
                 </div>
              </div> <!--close col-->
            </div> <!--close row mapbg-->
-
-            <div class= "whatInfo">
-              <div class ="row">
-                <div class="col-sm-1"></div>
-                <div class = "col-sm-10">
-                    <h3>What information does SOS Report?</h3>
-                    <p>SOS currently collects data from the following sources:</p>
-                    <div class = "row">
-                      <div class = "col-sm-6">
-                        <ul>
-                            <li>
-                                <p class = "name">Emergency Medical Services (EMS)</p>EMS data is obtained through the <b>Michigan EMS Information System (MI-EMSIS)</b> and includes statewide cases of naloxone administration. Naloxone administration may not indicate an opioid overdose, as naloxone is commonly administered by first responders to any unresponsive patient. Naloxone administration incident and city location is displayed on the SOS map as reported by EMS agencies to MI-EMSIS. Not all EMS agencies report incidents on a real-time basis and cases may be under-reported. 
-                            </li>
-                          </ul>
-                      </div>
-                       <div class = "col-sm-6">
-                          <ul>
-                              <li>
-                                  <p class = "name">Medical Examiners (ME)</p>Fatal suspected opioid overdose data is obtained through the electronic death database, <b>Medicolegal Death Investigation Log (MDILog)</b> and individual county medical examiners. Suspected overdose cases are determined through death investigators and updated to SOS on a regular basis. As toxicology reports become available, SOS is updated to reflect confirmed opioid related deaths. 
-                              </li>
-                            </ul>
-                       </div> 
-                    </div>
-                    <p>Due to the near-real time nature of SOS, all data collected is provisional and subject to change. Data may not always be complete and data should not be considered a definitive opioid overdose. All locations of the map are approximate. </p>
-                </div>
-                <div class = "col-sm-1"></div>
-              </div>
-              
-            </div>
-
-            <div class= "whoHasAccess">
-              <h3>Who has access to SOS?</h3>
-              <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                  <p>SOS is available to public health and public safety stakeholders involved in opioid overdose response and prevention efforts. The University of Michigan Injury Prevention Center monitors those accessing SOS to ensure proper use.
-                    </p>
-                </div>
-                <div class="col-sm-1"></div>
-              </div>
-            </div>
-            <p class = "pleasereachout">Please reach out to <a href = "mailto:SOS.Reports@umich.edu">SOS.Reports@umich.edu</a> with any questions or to request access.</p>
           </div>
         </div>
           <div class="row">
             <div class = "col-sm-12 d-flex justify-content-center align-items-center">
               <a href="https://injurycenter.umich.edu/" target="_blank"><img class="isIpc" src = "/static/images/IPC.png"></img></a>
-              <img class = "notipc" src = "/static/images/SOS.png"></img>
+              <img class = "notipc" id = "sos" src = "/static/images/SOS.png"></img>
               <img class = "notipc" src = "/static/images/hidta.png"></img>
             </div>
         </div>
       </div>
-      
-      <div class = "col-sm-1 sidebuff"></div>
     </div>
     <footer class="footer d-print-none">
+      <div class = "row">
+          <div class="col-sm-1 text-left">
+              <a href = "/login"><span class="fa fa-sign-in"></span> Login</a>
+          </div>
+          <div class="col-sm-11 text-right d-flex justify-content-end">
+            <p>Copyright &copy The Regents of the University of Michigan</p>
+          </div>
+      </div>
     </footer>
   <!-- scripts -->
     <script src= "/static/js/makeLandingMichSvg.js"></script>

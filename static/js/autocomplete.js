@@ -13,11 +13,10 @@ function autocomplete(inp, arr) {
         a.setAttribute("class", "autocomplete-items");
 
         this.parentNode.appendChild(a);
-
+        
         for (i = 0; i < arr.length; i++) {
-
           if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-
+            
             b = document.createElement("DIV");
 
             b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
@@ -25,12 +24,13 @@ function autocomplete(inp, arr) {
 
             b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
-                b.addEventListener("click", function(e) {
+            b.addEventListener("click", function(e) {
 
                 inp.value = this.getElementsByTagName("input")[0].value;
 
                 closeAllLists();
             });
+
           a.appendChild(b);
         }
       }

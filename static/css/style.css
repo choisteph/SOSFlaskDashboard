@@ -1,7 +1,18 @@
+*{
+  font-family: 'Noto Sans', sans-serif;
+  color: #00274c;
+}
+
+nav{
+  width: inherit !important;
+
+}
+
 .navbar {
   border-radius: 0;
-  margin-bottom: 0;
-  background-color: black;
+  margin: 0px;
+  padding: 0px;
+  background-color: #00274c;
 }
 
 .navbar a:hover {
@@ -12,23 +23,26 @@
 .navbar .active {
   font-weight: bold;
 }
+.navbar .navbar-brand{
+  padding: 10px;
+}
+
 
 .navbar a {
   color:#FFFFFF !important;
 }
 
+
 .topdatebuff {
   padding-top: 50px;
 }
 
-.content {
-  height: 100%;
-}
 
 .srcbutton{
-  background-color: black !important;
+  background-color: inherit !important;
   color: white !important;
   border: none;
+  padding: 5px;
 }
 .srcbutton:hover{
   text-decoration: underline;
@@ -41,25 +55,11 @@
   font-weight: bold;
 }
 
-.row.content {
-  height:auto;
-}
-
 .sidenav {
-  padding-top: 120px;
-  background-color:#00274c !important;
+  background-color:#001a33; /* a shade darker than 00274c*/
   height: inherit;
 }
 
-.footer {
-  position: absolute;
-  background-color: black;
-  right: 0;
-  left: 0;
-  /* bottom: -200; */
-  padding: 45px;
-  width: 100%;
-}
 
 li {
   list-style: none;
@@ -68,6 +68,12 @@ li {
 #race, #age, #gender {
   width: 100%;
   margin: 5px;
+}
+
+.content{
+  padding: 0px;
+  width: inherit;
+  margin: 0px;
 }
 
 section {
@@ -92,12 +98,8 @@ th {
 }
 
 .container-top-buffer {
-  margin-top:20px;
-}
-
-.top-buffer {
-  margin-top:50px;
-  margin-bottom: 25px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .section-buffer {
@@ -126,26 +128,26 @@ th {
 
 .accordion .list-group-item-text a:hover {
   background-color:#B5CEEE;
-  color: #00274c;
+  color: inherit;
 }
 
 .accordion .list-group-item-text a:focus {
   background-color:#B5CEEE;
-  color: #00274c;
+  color: inherit;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .accordion .list-group a {
-  background-color: #00274c;
+  background-color: inherit;
   color: white;
   font-size: 14px;
   border: none;
 }
 
 .accordion .list-group {
-  background-color: #00274c;
+  background-color: inherit;
   border: none;
 }
 
@@ -165,6 +167,9 @@ th {
   margin-bottom: 50px;
 }
 
+.allmapelems{
+  width: inherit;
+}
 .sidebuff {
   height: inherit;
   background-color: #00274c;
@@ -193,11 +198,19 @@ h2 {
 #gender {
   background-color: #F8F8F8;
 }
-
+.demographics{
+  width: inherit;
+  margin: 0px;
+}
 .eachDemographic {
   padding: 10px;
   padding-top: 40px;
   padding-bottom: 5px;
+}
+.resetalldem{
+  width: inherit;
+  padding: 0px;
+  margin: 0px;
 }
 
 .backtotop {
@@ -211,32 +224,6 @@ h2 {
 .rightbuff {
   background-color:#00274c;
   height: 100%;
-}
-
-.footstyle {
-  background-color: black;
-  color: white;
-}
-
-.footer .list-group {
-  background-color: transparent;
-}
-
-.footer .list-group-item {
-  font-size: 16px;
-  display: block;
-  padding: 10px;
-  background-color: transparent;
-}
-
-.footlink {
-  color: white;
-  text-decoration: underline;
-  margin: 5px;
-}
-
-.footlink:hover {
-  font-weight: bold;
 }
 
 div.sticky-top {
@@ -302,7 +289,6 @@ div.sticky-top {
 
 .disclaimer{
   font-style: oblique;
-  font-size: 10px;
 }
 
 .notipc{
@@ -317,8 +303,81 @@ div.sticky-top {
   height: 20px;
 }
 
-@media screen and (min-width:700px) {
-  .sidenav {
-    padding-top: 50px;
-  }
+nav span{
+  color: white;
+}
+
+
+footer{
+  width: inherit;
+}
+
+.footer{
+  position: relative;
+  background-color: #00274c !important;
+}
+
+.footer p{
+  color: white;
+}
+
+
+.logos{
+  padding-bottom: 10px;
+}
+
+table i{
+  color: white;
+}
+
+.summarySticky{
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-bottom: 25px;
+}
+
+.map-insert{
+  padding-top: 10px;
+}
+
+#datasource{
+  font-weight: normal;
+  font-size: 14pt;
+}
+
+.sidenavlabel{
+  color: white;
+  font-size: 10pt;
+  padding: 4px 0px;
+}
+
+.toggledatatype{
+  margin-bottom: 2px;
+}
+
+.sourcetogglers{
+  margin-top: 0px;
+  padding-top: 0px;
+  border-bottom-color: white;
+  border-bottom-style: double;
+  margin-bottom: 4px;
+}
+
+.fa-arrow-up{
+  color: red;
+}
+
+.fa-arrow-down{
+  color: green;
+}
+
+.bottomIPC{
+  height: 50px;
+}
+
+.bottomSOS{
+  height: 100px;
+}
+.bottomHIDTA{
+  height: 100px;
 }

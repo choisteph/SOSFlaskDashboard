@@ -24,7 +24,11 @@
 
   <!-- general style -->
   <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/landingcss.css">
   <link rel="stylesheet" href="/static/css/logincss.css">
+
+  <!--Google Fonts Noto Sans-->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
 
 
 </head>
@@ -33,22 +37,42 @@
   <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
   <header>
-    <!-- cool image, perhaps -->
+    <div class="header container-fluid">
+      <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between align-items-center">
+          <a href="https://injurycenter.umich.edu/" target="_blank">
+            <img class="topIPC" src="/static/images/IPC.png">
+          </a>
+          <div class="otherlogos">
+            <img class="topSOS" src="/static/images/SOS.png">
+            <img class="topHIDTA" src="/static/images/hidta.png">
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- top navigation -->
-  <nav class="navbar navbar-expand-sm fixed-top d-print-none">
-    <div class = "container-fluid">
-      <div class = "navbar-header">
-          <a class="navbar-brand" href="/">SOS Michigan Opioid Epidemic Dashboard</a>
-      </div>
-     </div>
-  </nav>
+  <nav class = "navbar navbar-expand-sm sticky-top">
+        <ul class = "navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">HOME</a>
+            </li>
+            <li class = "nav-item">
+              <a class="nav-link" href="/about">ABOUT</a>
+            </li>
+            <li class = "nav-item">
+              <a class="nav-link" href="/contact">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link current" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+            </li>
+        </ul> 
+    </nav>
 
   <div class="container-fluid container-top-buffer">
     <div class="row allpagestuff">
-        <div class="col-sm-1 sidebuff"></div> <!--close styled column-->
-        <div class = "col-sm-10">
+        <div class = "col-sm-12">
             <div class = "row logins">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 loginform">
@@ -71,11 +95,15 @@
                                 <h2>Login</h2>
                                 <div class="control-group">
                                     <label class="fa fa-user" for="login-name"></label>
-                                    <input type="text" class="login-field" value="" placeholder="user" name="username">
+                                    <input type="text" class="login-field" value="" placeholder="username" name="username" required>
                                 </div>
                                 <div class="control-group">
                                     <label class="fa fa-lock" for="login-pass"></label>
-                                    <input type="password" class="login-field" value="" placeholder="pwd" name="password">
+                                    <input type="password" class="login-field" value="" placeholder="password" name="password" required>
+                                </div>
+
+                                <div class="control-group license">
+                                    <input type="checkbox" name="agreetolicense" class="agreementcheck" required> I agree to the terms in the <a href="#EULA">End User License Agreement</a>.
                                 </div>
                                 <input type="submit" value="Log In" class="loginsubmit btn btn-primary btn-large">		 
                             </div>
@@ -88,20 +116,18 @@
                 </div>
                 <div class="col-sm-4"></div>
             </div> <!--close row logins-->
-            <div class= "row logos">
-                <div class = "col-sm-12 logostuff">
-                    <div class = "col-sm-12 d-flex justify-content-center align-items-center">
-                    <a href="https://injurycenter.umich.edu/" target="_blank"><img class="isIpc" src = "/static/images/IPC.png"></img></a>
-                    <img class = "notipc" src = "/static/images/SOS.png"></img>
-                    <img class = "notipc" src = "/static/images/hidta.png"></img>
-                </div> <!--close col-sm-12 logostuff-->
-            </div> <!--close row logos-->
-        </div> <!--close col-sm-10-->
+        </div> <!--close col-sm-12-->
       </div> <!--close main row-->
-      
-      <div class = "col-sm-1 sidebuff"></div>
+
     </div>
-    <footer class="footer d-print-none">
+    <footer class="footer mt-auto py-3">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 text-right d-flex justify-content-end">
+                <p>Copyright &copy 2019 The Regents of the University of Michigan</p>
+              </div>
+          </div>
+      </div>
     </footer>
 </body>
 </html>

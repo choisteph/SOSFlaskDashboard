@@ -1,4 +1,4 @@
-let width = 550;
+let width = 600;
 let height = width;
 
 //Create SVG element and append map to the SVG

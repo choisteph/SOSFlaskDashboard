@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from opioid_dict import src_dict, center_dict, special_dict, counties, names, MEcounties
+from opioid_dict import src_dict, center_dict, special_dict, counties, names, MEcounties, cities
 from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -53,6 +53,8 @@ def load_user(user_id):
 # Route for handling the login page logic
 @application.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('searchpage'))
     error = None
     form = LoginForm()
     if form.validate_on_submit():
@@ -83,11 +85,26 @@ def landing():
     data = {'MEcounties': MEcounties}
     return render_template('landing.html', data=data)
 
+@application.route('/about')
+def about():
+    return render_template('about.html')
+
+@application.route('/contact')
+def contact():
+
+    return render_template('contact.html')
+
+@application.route('/howtouse')
+def howtouse():
+
+    return render_template('howtouse.html')
+
 @application.route('/search', methods=['GET'])
 @login_required
 def searchpage():
     data = {'placenames': list(chain.from_iterable(names.values()))}
-    return render_template("search.html", data=data)
+    citylst = cities
+    return render_template("search.html", data=data, citylst = citylst)
 
 @application.route('/dashboard', methods=['GET'])
 @login_required

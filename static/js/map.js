@@ -50,7 +50,7 @@ function drawMarkers() {
             icon: tableIcon,
             opacity: d3.max([1 - (offset-1)/days, 0]),
           })
-          .bindPopup(`<p>${formatDate(pt.date)}<br>${pt.county}<br>${pt.Age} ${pt.Race} ${pt.Gender}</p>`))
+          .bindPopup(`<p>${formatDate(pt.date)}<br>${pt.county}<br>${pt.Age}, ${pt.Race}, ${pt.Gender}</p>`))
       };
 };
 

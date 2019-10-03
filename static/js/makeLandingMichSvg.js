@@ -21,9 +21,9 @@ async function makeMichMap(svgname, filename, ME=false) {
     const TOTAL = DATA.reduce((total,d) => total + d.value, 0)
 
     if (svgname === michEms){
-        d3.select('#totalEms').text(`Year-to-Date EMS Incidents: ${TOTAL}`)
+        d3.select('#totalEms').text(`${TOTAL}`)
     } else {
-        d3.select('#totalMe').text(`Year-to-Date ME Incidents: ${TOTAL}`)
+        d3.select('#totalMe').text(`${TOTAL}`)
     }    
 
     let tooltipDiv = d3.select('.mich')

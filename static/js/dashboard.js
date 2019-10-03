@@ -109,7 +109,7 @@ function changeSrc() {
       iconSize: [25,25], // size of the icon
       iconAnchor: [15,15], // point of the icon which will correspond to marker's location
     });
-    d3.select('#datasource').text(`${src} - SIMULATED`)
+    d3.select('#datasource').text( () => src === 'EMS' ? `EMS Naloxone Administrations - SIMULATED` : 'Suspected Drug Related Deaths - SIMULATED')
     d3.select('#dataicon')
         .attr('src',`/static/markers/${svgIcon}`)
         .attr('alt',`${txtIcon} represents ${src} data`)

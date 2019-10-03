@@ -1,9 +1,22 @@
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
 .content{
     padding-top: 0px;
 }
+.navbar{
+    background-color: #00274c;
+}
+
+.nav-item{
+    padding: 0px 5px;
+}
+span{
+    color: white;
+}
 
 .container-top-buffer {
-    margin-top:50px;
+    padding: 0px;
   }
   
 h2{
@@ -17,16 +30,18 @@ p{
 }
 h3{
     text-align: center;
-    padding: 5px;
 
 }
 
+.welcome h2{
+    font-weight: 400;
+}
 .introduction{
     font-size: 18px;
 }
 
 ul li{
-    list-style-type: circle; 
+    list-style-type: none; 
 }
 
 .whatInfo p{
@@ -56,11 +71,20 @@ path.county:hover{
     display: inline-block;
     height: 50px;
 }
-.isIpc{
+.is{
     background-color: white;
     margin: 20px;
     display: inline-block;
     height: 20px;
+}
+
+.dataTotal{
+    font-weight: bold;
+    font-size: 55pt;
+    border-right: 1px solid #e8e8e8;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
 }
 
 .pleasereachout{
@@ -94,15 +118,29 @@ path.county:hover{
     font-size: 18px;
 }
 
+header{
+    background-color: #00274c;
+}
+
+header .row{
+    padding: 10px 0px;
+}
+
+.row{
+    width: inherit !important;
+    margin: 0px;
+    padding: 0px;
+}
+
 .topIPC{
-    display: inline-block;
-    margin: 5px;
-    height: 20px;
+    height: 50px;
+}
+
+.topSOS{
+    height: 100px;
 }
 .topHIDTA{
-    display: inline-block;
-    margin: 5px;
-    height: 50px;
+    height: 100px;
 }
 
 .mapbg{
@@ -115,4 +153,98 @@ h6{
 
 .whatInfo{
     padding-top: 15px;
+}
+
+footer{
+    position: relative;
+    bottom:0;
+    background-color: #00274c;
+    width: 100vw;
+}
+.footer{
+    background-color: #00274c !important;
+    width: inherit;
+}
+
+.footer p{
+    color: white;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.logosontop{
+    padding-top: 50px;
+}
+
+nav{
+    width: inherit !important;
+  }
+  
+.navbar {
+    border-radius: 0;
+    margin: 0px;
+    padding: 0px;
+    background-color: #00274c;
+}
+  
+
+.otherlogos{
+    display: inline-block;
+}
+
+header{
+    background-color: #00274c;
+}
+
+.allstuff{
+    padding: 5px;
+}
+
+.countbox-ems{
+    border: 2px solid #587abc;
+    padding: 5px;
+    margin: 5px;
+}
+
+.countbox-me{
+    border: 2px solid #575294;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+.mapbg h5{
+    font-weight: bold;
+}
+
+.mapbg h6{
+    font-weight: normal;
+}
+
+.current{
+    font-weight: bold;
+}
+footer .container{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.descriptor{
+    display: block;
+    line-height: 2.5;
+    margin-bottom: 0px;
+}
+
+.totaltext{
+    padding: 0px;
+    margin: 2px;
+}
+
+.allabout{
+    height: inherit;
 }

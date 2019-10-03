@@ -53,6 +53,8 @@ def load_user(user_id):
 # Route for handling the login page logic
 @application.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('searchpage'))
     error = None
     form = LoginForm()
     if form.validate_on_submit():

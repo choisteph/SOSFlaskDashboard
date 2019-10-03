@@ -33,3 +33,15 @@
     padding: 10px 0px;
     margin-top: 15px;
 }
+
+.license{
+    padding: 10px 0px;
+}
+
+.license a{
+    text-decoration: underline;
+}
+
+.agreementcheck{
+    padding-right: 5px;
+}

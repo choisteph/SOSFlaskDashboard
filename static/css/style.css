@@ -3,9 +3,14 @@
   color: #00274c;
 }
 
+nav{
+  width: inherit !important;
+}
+
 .navbar {
   border-radius: 0;
-  margin-bottom: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: #00274c;
 }
 
@@ -17,6 +22,10 @@
 .navbar .active {
   font-weight: bold;
 }
+.navbar .navbar-brand{
+  padding: 10px;
+}
+
 
 .navbar a {
   color:#FFFFFF !important;
@@ -26,15 +35,12 @@
   padding-top: 50px;
 }
 
-.content {
-  height: 100%;
-  position: relative;
-}
 
 .srcbutton{
   background-color: inherit !important;
   color: white !important;
   border: none;
+  padding: 10px;
 }
 .srcbutton:hover{
   text-decoration: underline;
@@ -47,25 +53,11 @@
   font-weight: bold;
 }
 
-.row.content {
-  height:auto;
-}
-
 .sidenav {
-  padding-top: 120px;
   background-color:#00274c !important;
   height: inherit;
 }
 
-body >.footer {
-  position: absolute;
-  background-color: black;
-  right: 0;
-  left: 0;
-  /* bottom: -200; */
-  padding: 45px;
-  width: 100%;
-}
 
 li {
   list-style: none;
@@ -98,12 +90,8 @@ th {
 }
 
 .container-top-buffer {
-  margin-top:20px;
-}
-
-.top-buffer {
-  margin-top:50px;
-  margin-bottom: 25px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .section-buffer {
@@ -282,7 +270,6 @@ div.sticky-top {
 
 .disclaimer{
   font-style: oblique;
-  font-size: 10px;
 }
 
 .notipc{
@@ -302,21 +289,19 @@ nav span{
 }
 
 
+footer{
+  width: inherit;
+}
+
 .footer{
-  padding-top: 100px;
   position: relative;
   background-color: #00274c !important;
-  width: 100%;
 }
 
 .footer p{
   color: white;
 }
 
-.footer{
-  position: fixed;
-  bottom: 0;
-}
 
 .bottomIPC{
   height: 30px;
@@ -334,9 +319,26 @@ nav span{
   padding-bottom: 10px;
 }
 
+table i{
+  color: white;
+}
 
-@media screen and (min-width:700px) {
-  .sidenav {
-    padding-top: 50px;
-  }
+.summarySticky{
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-bottom: 25px;
+}
+
+.map-insert{
+  padding-top: 10px;
+}
+
+#datasource{
+  font-weight: normal;
+  font-size: 14pt;
+}
+
+#sidenavlabel{
+  color: white;
+  font-size: 8pt;
 }

@@ -39,7 +39,7 @@ h3{
 }
 
 ul li{
-    list-style-type: circle; 
+    list-style-type: none; 
 }
 
 .whatInfo p{
@@ -126,12 +126,9 @@ header .row{
 }
 
 .topSOS{
-    margin: 5px;
     height: 100px;
 }
 .topHIDTA{
-
-    margin: 5px;
     height: 100px;
 }
 
@@ -165,21 +162,25 @@ footer{
 .footer{
     position: fixed;
     bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .logosontop{
     padding-top: 50px;
 }
 
-.navbar-nav li{
-    list-style: none !important;
-    padding-right: 10px;
+nav{
+    width: inherit !important;
+  }
+  
+.navbar {
+border-radius: 0;
+margin: 0px;
+padding: 0px;
+background-color: #00274c;
 }
-
-.navbar-nav li:hover{
-    text-decoration: underline;
-    font-weight: normal;
-}
+  
 
 .otherlogos{
     display: inline-block;

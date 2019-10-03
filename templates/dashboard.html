@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <!--Title uses flask to update data source-->
-  <title> {{ data.titlename }}  {{  data.src  }} - SIMULATED</title>
+  {% if data.src == "EMS" %}
+    <title>{{ data.titlename }} EMS Naloxone Administrations - SIMULATED</title>
+  {% else %}
+    <title> {{ data.titlename }} Suspected Drug Related Deaths - SIMULATED</title>
+  {% endif %}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,38 +64,36 @@
 
 </head>
 
-<body class = "d-flex flex-column">
+<body>
   <!-- accessibility skip to main tab index -->
   <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
   <header></header>
 
   <!-- top navigation -->
-  <nav class="navbar navbar-expand-sm fixed-top d-print-none">
-    <div class = "container-fluid">
-      <div class = "navbar-header">
+  <nav class="navbar navbar-expand-sm sticky-top">
+    <div class="container-fluid">
         <a class="navbar-brand" href="/search">SOS Authorized User Dashboard</a>
-      </div>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <div>
-            <button class="srcbutton" onclick="updateSrc('EMS')"> EMS </button>
-            <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
-          </div>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class = "signout"><a href = "/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
-      </ul>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <div>
+              <button class="srcbutton" onclick="updateSrc('EMS')"> EMS </button>
+              <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class = "signout"><a href = "/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
+        </ul>
     </div>
   </nav>
 
   <div class="container-fluid container-top-buffer">
     <!-- container-top-buffer is defined in style.css -->
     <div class="row content">
-
       <!-- side navigation -->
       <div class="col-sm-1 sidenav text-right push-1">
+        <h5 id="sidenavlabel">County or City of Interest</h5>
         <div id="accordion" class="accordion">
           <!-- accordion has extra styling rules in style.css -->
           <div class="panel list-group">
@@ -119,10 +121,11 @@
       <!-- screen view  content -->
       <div class="col-sm-11 text-center"  id="content" tabindex="-1">
         <!-- sticky information bar, with variables inserted through flask -->
-        <div class="row top-buffer sticky-top border-bottom">
+        <div class="summarySticky row border-bottom sticky-top">
             <div class= "col-sm-4 text-left">
               <h2 id="place">{{ data.titlename }}</h2>
               <h4 id="datasource"></h4>
+
               <img id='dataicon'>
               <!-- {% if data.src == "ED" %}
                 <img src = "/static/markers/hospital_icon_blues.svg" alt = "hospital represents ED data">
@@ -150,13 +153,23 @@
         </div>
 
         <!-- Map -->
-        <div class="map-insert" align="center">
-          <div class="map" id="map"></div>
+        <div class="row allmapelems">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8 d-flex align-items-center justify-content-center">
+            <div class="alignmaptext d-flex flex-column align-items-start">
+              <div class="map-insert d-flex align-items-center justify-content-center">
+                  <div class="map" id="map"></div>
+                </div>
+                <div class="mapdisclaimer">
+                  <p class="disclaimer"> *All locations on the map are approximate</p>
+                  <!-- <p class = "disclaimer">*Total counts are based on mailing address, which may not correspond with municipal boundaries</p>
+                  <p class = "disclaimer">*Some incidents may be unmappable due to incomplete location information</p> -->
+                </div>
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
         </div>
-        <div class="mapdisclaimer">
-          <p class = "disclaimer">*Total counts are based on mailing address, which may not correspond with municipal boundaries</p>
-          <p class = "disclaimer">*Some incidents may be unmappable due to incomplete location information</p>
-        </div>
+
 
         <!-- Timeseries -->
         <div class="timetable-insert">
@@ -235,7 +248,8 @@
             </p>
           </div>
         </div>
-  </div>
+      </div>
+    </div>
   <footer class="footer mt-auto py-3">
       <div class="container-fluid">
         <div class="row logos d-flex align-items-center justify-content-around">

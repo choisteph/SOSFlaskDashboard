@@ -75,12 +75,6 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/search">SOS Authorized User Dashboard</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <div>
-              <button class="srcbutton" onclick="updateSrc('EMS')"> EMS </button>
-              <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
-            </div>
-          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class = "signout"><a href = "/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -93,7 +87,12 @@
     <div class="row content">
       <!-- side navigation -->
       <div class="col-sm-1 sidenav text-right push-1">
-        <h5 id="sidenavlabel">County or City of Interest</h5>
+        <h5 class="sidenavlabel">Toggle Data Type:</h5>
+        <div class="sourcetogglers">
+          <button class="srcbutton" onclick="updateSrc('EMS')"> EMS </button>
+          <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
+        </div>
+        <h5 class="sidenavlabel">County or City of Interest:</h5>
         <div id="accordion" class="accordion">
           <!-- accordion has extra styling rules in style.css -->
           <div class="panel list-group">
@@ -205,7 +204,7 @@
           </div>
         {% endfor %}
         </div>
-        <div class="row">
+        <div class="row resetalldem">
           <div class="col-sm-12">
             <button class="resetButton" onclick="resetAll()"> reset demographics </button>
           </div>

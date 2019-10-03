@@ -19,7 +19,7 @@ function makeGenderChart() {
         .attr('viewBox','0 0 '+Math.min(width,height) +' '+Math.min(width,height) )
         .attr("transform", `translate(${widthGender/2},${heightGender/2})`);
 
-    // sets up arc and dimensions of dount table
+    // sets up arc and dimensions of donut chart
     pie = d3.pie()
         .value(d => d.value)
         .sort(null);
@@ -36,19 +36,19 @@ function makeGenderChart() {
         .attr("fill", (d,i) => color[i] )
         .attr("d", arc)
         .each(function(d) {// store the initial angles
-            this._current = d
-        })// close each function
-        // onclick
-        .on('click', function(d,i) {// set up crossfilter
-
+          this._current = d
+        })
+        .on('click', function(d,i) {
             if (genderArray.includes(d.data.key)) { // remove filter
                 genderArray.splice(genderArray.indexOf(d.data.key),1)
-                d3.select(this).attr('fill', color[i])
-                .attr('stroke-width', 0)
-                .attr('stroke', '')
-            } else {// add filter
+                d3.select(this)
+                  .attr('fill', color[i])
+                  .attr('stroke-width', 0)
+                  .attr('stroke', '')
+            } else { // add filter
                 genderArray.push(d.data.key)
-                d3.select(this).attr('fill', '#d4f2e0')
+                d3.select(this)
+                  .attr('fill', '#d4f2e0')
                   .attr('stroke-width', 4)
                   .attr('stroke', '#95dfb3')
             }
@@ -57,7 +57,7 @@ function makeGenderChart() {
 
             // filters other graphs
             updateAll();
-        }); //close onclick
+        });
 
     // puts label on donut chart
     label = svgGender.datum(dataGender).selectAll('text')
@@ -68,16 +68,15 @@ function makeGenderChart() {
         .attr('dy','0.35em')
         .style('opacity', d => d.data.value==0 ? 0 : 1)
         .each(function(d) { // store the initial angles
-            const angles = { startAngle: d.startAngle, endAngle: d.endAngle };
-            this._current = angles;
-            });
+          const angles = {startAngle: d.startAngle, endAngle: d.endAngle};
+          this._current = angles;
+        });
     // label top line
     label.append("tspan")
         .attr('class', 'count age-group')
         .attr("x", 0)
         .attr("y", "-0.2em")
         .text(d => d.data.key);
-
     // label bottom line
     labelCount = label.append("tspan")
         .attr('class', 'count')
@@ -86,12 +85,12 @@ function makeGenderChart() {
         .text(d => d.data.value);
 };
 
-  // update donut table
+  // update donut chart
 function updateGender() {
     const easeFunc = d3.easeCircle;
     const T = 750;
 
-  // changes arc angle of donut table
+    // changes arc angle of donut chart
     function arcTween(a) {
         let i = d3.interpolate(this._current, a);
         this._current = i(0);
@@ -110,7 +109,7 @@ function updateGender() {
             const interpolate = d3.interpolate(this._current, d);
             this._current = angles;
             return function(t) {
-            return `translate(${arc.centroid(interpolate(t))})`;
+              return `translate(${arc.centroid(interpolate(t))})`;
             };
         });
 

@@ -184,11 +184,11 @@
 
         <!-- Timeseries -->
         <div class="timetable-insert">
-          <button class="timetablebutton" onclick="changeDate('oneweek')"> 1W </button>
-          <button class="timetablebutton" onclick="changeDate('twoweeks')"> 2W </button>
-          <button class="timetablebutton" onclick="changeDate('onemonth')"> 1M </button>
-          <button class="timetablebutton" onclick="changeDate('threemonths')"> 3M </button>
-          <button class="timetablebutton" onclick="changeDate('yeartodate')"> YTD </button>
+          <button class="timetablebutton" onclick="changeDate('1W')">1W</button>
+          <button class="timetablebutton" onclick="changeDate('2W')">2W</button>
+          <button class="timetablebutton" onclick="changeDate('1M')">1M</button>
+          <button class="timetablebutton" onclick="changeDate('3M')">3M</button>
+          <button class="timetablebutton" onclick="changeDate('YTD')">YTD</button>
           <div class="timetable bottombuffer"></div>
         </div>
 
@@ -201,15 +201,15 @@
             </div>
             <div class="row {{item}}-chart center-block f-flex alogn-items-centerS">
               {% if item == "Age" %}
-                <button class="resetButton" onclick="resetAge()"> reset age </button>
+                <button class="resetButton" onclick="resetAge()">reset age</button>
                 <svg id="age"></svg>
               {% endif %}
               {% if item == "Gender" %}
-                <button class="resetButton" onclick="resetGender()"> reset gender </button>
+                <button class="resetButton" onclick="resetGender()">reset gender</button>
                 <svg id="gender"></svg>
               {% endif %}
               {% if item == "Race" %}
-                <button class="resetButton" onclick="resetRace()"> reset race </button>
+                <button class="resetButton" onclick="resetRace()">reset race</button>
                 <svg id="race"></svg>
               {% endif %}
             </div>
@@ -218,16 +218,16 @@
         </div>
         <div class="row resetalldem">
           <div class="col-sm-12">
-            <button class="resetButton" onclick="resetAll()"> reset demographics </button>
+            <button class="resetButton" onclick="resetAll()">reset demographics</button>
           </div>
         </div>
 
 
         <!-- Table -->
         <div class="tablebuttondiv">
-          <button onclick="changeRows(10);" class="ten change selected tablebutton"> 10 rows </button>
-          <button onclick="changeRows(20);" class="twenty change tablebutton"> 20 rows </button>
-          <button onclick="changeRows(50);" class="fifty change tablebutton"> 50 rows </button>
+          <button onclick="changeRows(10);" class="ten change selected tablebutton">10 rows</button>
+          <button onclick="changeRows(20);" class="twenty change tablebutton">20 rows</button>
+          <button onclick="changeRows(50);" class="fifty change tablebutton">50 rows</button>
         </div>
         <div class="table-responsive bottombuffer">
           <table id="sosTable" class="table table-bordered table-striped table-hover"></table>

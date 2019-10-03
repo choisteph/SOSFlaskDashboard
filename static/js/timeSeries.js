@@ -63,11 +63,10 @@ function makeTimeSeries() {
 
     // scale the range of the data
     endDate = d3.timeDay.offset(d3.max(dataDate, d => d.key),1)
-    x.domain([d3.min(dataDate, d => d.key), endDate]);
-    y.domain([0, d3.max([3, d3.max(dataDate, d => d.value)])]);
-    x2.domain(x.domain());
-    y2.domain(y.domain());
-    const days = numDays();
+    x2.domain([d3.min(dataDate, d => d.key), endDate]);
+    y2.domain([0, d3.max([3, d3.max(dataDate, d => d.value)])]);
+    x.domain(x2.domain());
+    y.domain(y2.domain());
 
     // add the focus bar chart
     bars = focus.selectAll(".bar")
@@ -129,7 +128,6 @@ function makeTimeSeries() {
         .call(brush)
         .call(brush.move, [x(beginDate), x(endDate)]) // initialize brush selection
 
-    // draw markers on Mapbox
     dateDim.filter([beginDate, endDate]);
 };
 
@@ -185,7 +183,6 @@ function brushended() {
     if (!d3.event.selection) brushed(); // Empty selection returns default brush
     const dateRange = d3.event.selection.map(x2.invert);
     let dayRange = dateRange.map(d3.timeDay.round);
-
     // If empty when rounded, use floor & ceil instead.
     if (dayRange[0] >= dayRange[1]) {
         dayRange[0] = d3.timeDay.floor(dateRange[0]);
@@ -223,15 +220,15 @@ function resampleDates(data) {
     })
 };
 
-function changeDate(time) {
+function changeDate(T) {
     endDate = d3.timeDay.offset(d3.max(dataDate, d => d.key),1)
     x.domain([d3.min(dataDate, d => d.key), endDate]);
 
-    beginDate = time == 'oneweek' ? d3.timeDay.offset(endDate, -7) :
-                time == 'twoweeks' ? d3.timeDay.offset(endDate, -14) :
-                time == "onemonth" ? d3.timeMonth.offset(endDate, -1) :
-                time == "threemonths" ? d3.timeMonth.offset(endDate, -3) :
-                                        d3.timeYear(new Date);
+    beginDate = T == '1W' ? d3.timeDay.offset(endDate, -7) :
+                T == '2W' ? d3.timeDay.offset(endDate, -14) :
+                T == "1M" ? d3.timeMonth.offset(endDate, -1) :
+                T == "3M" ? d3.timeMonth.offset(endDate, -3) :
+                T == "YTD" ? d3.timeYear(new Date) : null
 
     selection.attr("class", "brush")
         .call(brush)

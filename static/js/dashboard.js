@@ -16,7 +16,7 @@ async function makeDashboard(fileName, placename, placetype) {
         countyDim.filter(d => d === placename)
     } else  {
         cityDim = CF.dimension(d => d.city);
-        cityDim.filter(d => d === placename)
+        cityDim.filter(d => d.includes(placename))
     }
     rows = 10;
     sortColumn = "date";
@@ -55,7 +55,6 @@ function updateAll(updateCharts = true) {
 function summaryStats(dayRange=x.domain()) {
     const days = (dayRange[1] - dayRange[0]) / 86400000
     const prevDayRange = [d3.timeDay.offset(dayRange[0],-days), dayRange[0]];
-    dayRange[1] = d3.timeSecond.offset(dayRange[1],-1);
     dateDim.filter(prevDayRange)
     const N0 = CF.groupAll().value()
     dateDim.filter(dayRange)
@@ -63,6 +62,7 @@ function summaryStats(dayRange=x.domain()) {
     const delta = N1-N0
     const formatPct = d3.format('+,.0%')
     const pctChange = N0 > 0 ? formatPct(delta/N0) : "N/A"
+    dayRange[1] = d3.timeSecond.offset(dayRange[1],-1);
     const fDate = dayRange.map(formatDate)
     d3.selectAll('.summary')
         .data([fDate[0],fDate[1],N1,delta,pctChange])

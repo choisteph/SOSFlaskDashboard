@@ -5,8 +5,8 @@ function navPlace(){
     var form = document.querySelector(".formthing");
 
     if (cities.includes(placeName)) {
-      window.location.href = "/dashboard?src=" + globalDataSource + "&city=" + placeName;
+      window.location.href = "/dashboard?city=" + placeName;
     } else {
-      window.location.href  = "/dashboard?src=" + globalDataSource + "&county=" + placeName;
+      window.location.href  = "/dashboard?county=" + placeName;
     };
 };

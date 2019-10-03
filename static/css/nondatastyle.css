@@ -197,3 +197,11 @@ footer{
 .logos{
   padding-bottom: 10px;
 }
+
+.nav-item{
+  padding: 0px 5px;
+}
+
+.current{
+  font-weight: bold;
+}

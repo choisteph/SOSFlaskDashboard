@@ -38,7 +38,7 @@
 
   <header>
     <div class="header container-fluid">
-      <div class="row">
+      <div class="row d-flex">
         <div class="col-sm-12 d-flex justify-content-between align-items-center">
           <a href="https://injurycenter.umich.edu/" target="_blank">
             <img class="topIPC" src="/static/images/IPC.png">
@@ -86,8 +86,14 @@
                 <div class = "row label">
                   <div class = "col-sm-12 d-flex justify-content-center text-center">
                     <div class = "countbox-ems">
-                        <h5 class="dataTotal" id= "totalEms"> </h5>
-                        <h6>Naloxone administrations by EMS</h6>
+                      <div class="row d-flex align-items-center justify-content-center">
+                        <div class= "col-sm-8">
+                            <h3 class="dataTotal text-left" id= "totalEms"> </h3>
+                        </div>
+                        <div class="col-sm-4">
+                            <h6 class="descriptor text-left">Naloxone administrations by EMS</h6>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -102,8 +108,14 @@
                 <div class = "row label">
                   <div class = "col-sm-12 d-flex justify-content-center text-center">
                     <div class="countbox-me">
-                      <h5 class="dataTotal" id = "totalMe"></h5>
-                      <h6>Suspected drug-related deaths</h6>
+                      <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-sm-8">
+                            <h3 class="dataTotal text-left" id = "totalMe"></h3>
+                        </div>
+                        <div class="col-sm-4">
+                            <h6 class="descriptor text-left">Suspected drug-related deaths</h6>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -118,7 +130,7 @@
         </div>
       </div>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width= "0"height="0">
       <defs> 
         <pattern id="stripes" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(60)">
           <rect width="2" height="6" fill="#575294"></rect>

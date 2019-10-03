@@ -92,6 +92,11 @@ def contact():
 
     return render_template('contact.html')
 
+@application.route('/howtouse')
+def howtouse():
+
+    return render_template('howtouse.html')
+
 @application.route('/search', methods=['GET'])
 @login_required
 def searchpage():

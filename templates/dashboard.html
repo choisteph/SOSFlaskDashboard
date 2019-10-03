@@ -75,6 +75,9 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/search">SOS Authorized User Dashboard</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" href="/howtouse">HOW TO USE</a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class = "signout"><a href = "/logout"><span class="fa fa-sign-out"></span> Logout</a></li>
@@ -87,7 +90,7 @@
     <div class="row content">
       <!-- side navigation -->
       <div class="col-sm-1 sidenav text-right push-1">
-        <h5 class="sidenavlabel">Toggle Data Type:</h5>
+        <h5 class="sidenavlabel toggledatatype">Toggle Data Type:</h5>
         <div class="sourcetogglers">
           <button class="srcbutton" onclick="updateSrc('EMS')"> EMS </button>
           <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
@@ -155,14 +158,14 @@
         <div class="row allmapelems">
           <div class="col-sm-2"></div>
           <div class="col-sm-8 d-flex align-items-center justify-content-center">
-            <div class="alignmaptext d-flex flex-column align-items-start">
+            <div class="alignmaptext d-flex flex-column align-items-start justify-content-center">
               <div class="map-insert d-flex align-items-center justify-content-center">
                   <div class="map" id="map"></div>
                 </div>
-                <div class="mapdisclaimer">
-                  <p class="disclaimer"> *All locations on the map are approximate</p>
-                  <!-- <p class = "disclaimer">*Total counts are based on mailing address, which may not correspond with municipal boundaries</p>
-                  <p class = "disclaimer">*Some incidents may be unmappable due to incomplete location information</p> -->
+                <div class="mapdisclaimer text-left">
+                  <p class = "disclaimer"> *All locations on the map are approximate</p>
+                  <p class = "disclaimer">**Total counts are based on mailing address, which may not correspond with municipal boundaries</p>
+                  <p class = "disclaimer">***Some incidents may be unmappable due to incomplete location information</p>
                 </div>
             </div>
           </div>
@@ -243,7 +246,6 @@
           <div class="col-sm-12">
             <p class="disclaimer">Due to the near-real time nature of SOS, all data collected is provisional and subject to change. Data may not always be complete and data should not be considered a definitive opioid overdose count. All locations on the map are approximate.
               <br>Please reach out to <a href="mailto:SOS.Reports@umich.edu">SOS.Reports@umich.edu</a> with any questions.
-              <br>University of Michigan 2019 	&#8482;
             </p>
           </div>
         </div>
@@ -252,7 +254,9 @@
   <footer class="footer mt-auto py-3">
       <div class="container-fluid">
         <div class="row logos d-flex align-items-center justify-content-around">
-            <img class="bottomIPC" src="/static/images/IPC.png">
+            <a href="https://injurycenter.umich.edu/" target="_blank">
+              <img class="bottomIPC" src="/static/images/IPC.png">
+            </a>
             <img class="bottomSOS" src="/static/images/SOS.png">
             <img class="bottomHIDTA" src="/static/images/hidta.png">
         </div>

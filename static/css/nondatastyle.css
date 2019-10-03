@@ -183,16 +183,16 @@ footer{
 }
 
 .bottomIPC{
-  height: 30px;
+  height: 50px;
 }
 
 .bottomSOS{
-  height: 70px;
+  height: 100px;
+}
+.bottomHIDTA{
+  height: 100px;
 }
 
-.bottomHIDTA{
-  height: 70px;
-}
 
 .logos{
   padding-bottom: 10px;

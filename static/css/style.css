@@ -42,7 +42,7 @@ nav{
   background-color: inherit !important;
   color: white !important;
   border: none;
-  padding: 10px;
+  padding: 5px;
 }
 .srcbutton:hover{
   text-decoration: underline;
@@ -322,18 +322,6 @@ footer{
 }
 
 
-.bottomIPC{
-  height: 30px;
-}
-
-.bottomSOS{
-  height: 70px;
-}
-
-.bottomHIDTA{
-  height: 70px;
-}
-
 .logos{
   padding-bottom: 10px;
 }
@@ -361,6 +349,35 @@ table i{
   color: white;
   font-size: 10pt;
   padding: 4px 0px;
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
+}
+
+.toggledatatype{
+  margin-bottom: 2px;
+}
+
+.sourcetogglers{
+  margin-top: 0px;
+  padding-top: 0px;
+  border-bottom-color: white;
+  border-bottom-style: double;
+  margin-bottom: 4px;
+}
+
+.fa-arrow-up{
+  color: red;
+}
+
+.fa-arrow-down{
+  color: green;
+}
+
+.bottomIPC{
+  height: 50px;
+}
+
+.bottomSOS{
+  height: 100px;
+}
+.bottomHIDTA{
+  height: 100px;
 }

@@ -75,8 +75,8 @@ function makeRaceChart() {
 
     // adds text for bars on race
     barsRaceLabel = svgRace.selectAll("text")
-        .data(dataRace)
-        .enter().append("text")
+      .data(dataRace)
+      .enter().append("text")
         .attr("class", "chart")
         .style("font-size","16px")
         .attr("x", d => xRace(d.value) + 12)
@@ -87,12 +87,12 @@ function makeRaceChart() {
     svgRace.append("g")
         .attr("class", "y")
         .call(yAxisRace)
-        .selectAll(".tick text")
+      .selectAll(".tick text")
         .call(wrap, yRace.bandwidth() + 70)
         .attr("x", -12);
 
     svgRace.select(".y")
-        .selectAll("text")
+      .selectAll("text")
         .style("font-size","16px");
 
     // sets up x-axis with ticks and size
@@ -100,30 +100,30 @@ function makeRaceChart() {
         .attr("class", "x")
         .attr("transform", `translate(0,${heightRace})`)
         .call(d3.axisBottom(xRace))
-    .selectAll(".tick text")
+      .selectAll(".tick text")
         .style("font-size","16px")
         .attr("y", 15);
 };
 
 // update race bars
 function updateRace() {
-    let max = d3.max(dataRace, d=>d.value);
-    let newMax = Math.max(max, 5);
+    const xmax = d3.max([5, d3.max(dataRace, d => d.value)])
+    const easeFunc = d3.easeQuad;
+    const T = 750
 
-    xRace.domain([0,newMax]);
+    xRace.domain([0, xmax]);
     svgRace.select(".x")
-        .transition().duration(200)
+        .transition().duration(T*0.5)
         .call(d3.axisBottom(xRace) .ticks(6))
-    .selectAll(".tick text")
+      .selectAll(".tick text")
         .style("font-size","16px")
 
-    barsRace.data(dataRace)
-        .transition().duration(200)
+    barsRace.transition().ease(easeFunc).duration(T)
         .attr("width", d => xRace(d.value));
 
-    barsRaceLabel.data(dataRace)
-        .transition().duration(200)
-        .attr("x", d => xRace(d.value) + 14)
+    const labelOffset = 14
+    barsRaceLabel.transition().ease(easeFunc).duration(T)
+        .attr("x", d => xRace(d.value) + labelOffset)
         .text(d => d.value);
 };
 

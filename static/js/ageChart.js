@@ -47,13 +47,12 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
             // if clicked, filter table
             if (ageArray.includes(d.key)) {
                 d3.select(this)
-                .style("fill", '#FB9A99')
-                .attr('stroke-width', 0)
-                .attr('stroke', '')
+                    .style("fill", '#FB9A99')
+                    .attr('stroke-width', 0)
+                    .attr('stroke', '')
                 ageArray.splice(ageArray.indexOf(d.key),1)
             } else {
                 d3.select(this)
-                    // .style("fill", "#117190");
                     .style('fill', '#d4f2e0')
                     .attr('stroke-width', 4)
                     .attr('stroke', '#95dfb3');
@@ -68,8 +67,8 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
 
     // adds text for bars on age
     barsAgeLabel = svgAge.selectAll("text")
-        .data(dataAge)
-        .enter().append("text")
+      .data(dataAge)
+      .enter().append("text")
         .attr("class", "chart")
         .style("font-size","16px")
         .attr("x", d => xAge(d.value) - 32)
@@ -81,12 +80,12 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
         .attr("class", "y")
         .call(yAxis1)
         .attr("transform", `translate(${widthAge},0)`)
-        .selectAll(".tick text")
+      .selectAll(".tick text")
         .attr("x", 10)
 
     // specifies size for y axis age graph
     svgAge.select(".y")
-        .selectAll("text")
+      .selectAll("text")
         .style("font-size","16px");
 
     // adds text for x axis age graph
@@ -94,30 +93,30 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
         .attr("class","x")
         .attr("transform", `translate(0,${heightAge})`)
         .call(d3.axisBottom(xAge) .ticks(5))
-        .selectAll(".tick text")
+      .selectAll(".tick text")
         .style("font-size","16px")
         .attr("y", 10);
 };
 
 function updateAge() {
-    let max = d3.max(dataAge, d => d.value);
-    let newMax = Math.max(max, 5);
+    const xmax = d3.max([5, d3.max(dataAge, d => d.value)])
+    const easeFunc = d3.easeQuad;
+    const T = 750
 
-    xAge.domain([0,newMax]);
+    xAge.domain([0, xmax]);
     svgAge.select(".x")
-        .transition().duration(200)
-        .call(d3.axisBottom(xAge) .ticks(6))
-    .selectAll(".tick text")
+        .transition().duration(T*0.5)
+        .call(d3.axisBottom(xAge).ticks(6))
+      .selectAll(".tick text")
         .style("font-size","16px")
 
-    barsAge.data(dataAge)
-        .transition().duration(200)
+    barsAge.transition().ease(easeFunc).duration(T)
         .attr("x", d => xAge(d.value))
         .attr("width", d => (widthAge - xAge(d.value)));
 
-    barsAgeLabel.data(dataAge)
-        .transition().duration(200)
-        .attr("x", d => xAge(d.value) - 18)
+    const labelOffset = -18
+    barsAgeLabel.transition().ease(easeFunc).duration(T)
+        .attr("x", d => xAge(d.value) + labelOffset)
         .text(d => d.value);
   };
 

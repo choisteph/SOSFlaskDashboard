@@ -88,8 +88,8 @@ function makeGenderChart() {
 
   // update donut table
 function updateGender() {
-    let easement = d3.easeSin;
-    let T = 750;
+    const easeFunc = d3.easeCircle;
+    const T = 750;
 
   // changes arc angle of donut table
     function arcTween(a) {
@@ -99,10 +99,10 @@ function updateGender() {
     };
 
     slices.data(pie)
-        .transition().ease(easement).duration(T)
+        .transition().ease(easeFunc).duration(T)
         .attrTween("d", arcTween); // redraw the arcs
     label.data(pie)
-        .transition().ease(easement).duration(T) // animate text movement
+        .transition().ease(easeFunc).duration(T) // animate text movement
         .attr('dy','0.35em')
         .style('opacity', d => d.data.value == 0 ? 0 : 1)
         .attrTween("transform", function(d) {

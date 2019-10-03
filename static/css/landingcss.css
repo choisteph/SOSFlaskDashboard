@@ -16,7 +16,6 @@ span{
 }
 
 .container-top-buffer {
-    margin-top: 25px;
     padding: 0px;
   }
   
@@ -172,7 +171,7 @@ footer{
 }
 
 .footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
@@ -244,4 +243,8 @@ footer .container{
 .totaltext{
     padding: 0px;
     margin: 2px;
+}
+
+.allabout{
+    height: inherit;
 }

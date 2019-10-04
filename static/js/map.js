@@ -36,7 +36,6 @@ function createMap() {// Mapbox section
 
     // spatial filtering on map event
     map.on('moveend zoomend', function() {
-        lastFilter = "date";
         updateAll();
     });
 };

@@ -66,10 +66,10 @@
                       <div class="col-sm-12 d-flex justify-content-center align-items-center">
                         <h5 class="text-center">Please Select Data Source:</h5>
                         <div class="form-check form-check-inline radios"  id = "radios">
-                          <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange = "updateGlobal(this)" checked> EMS
+                          <input class="form-check-input" type="radio" name="Radio" id="EMSRadio" value="EMS" onchange="selectSrc(this)" checked> EMS
                         </div>
                         <div class="form-check form-check-inline radios">
-                          <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange = "updateGlobal(this)"> ME
+                          <input class="form-check-input" type="radio" name="Radio" id="MERadio" value="ME" onchange="selectSrc(this)"> ME
                         </div>
                       </div>
                     </div>
@@ -116,12 +116,12 @@
   <script src= "/static/js/navfromsearch.js"></script>
   <script src="/static/js/srcFromRadio.js"></script>
   <script>
-  var globalDataSource="";
-  updateGlobal();
+  let dataSource="EMS";
+  selectSrc();
   make_map(ONE, "ONE");
 
   // flask variable setting because this cannot be in an external js doc. used in autocomplete.js
-  var inputOptions = {{ data.placenames|safe }};
+  let inputOptions = {{ data.placenames|safe }};
 
   //run autocomplete, defined in autocomplete.js
   autocomplete(document.getElementById("searchthing"), inputOptions);

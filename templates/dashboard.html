@@ -117,10 +117,10 @@
               <ul class="list-group-item-text">
                 {% for item in data.names[letter] %}
                   {% if item in data.counties %}
-                    <li><a href="?src={{ data.src }}&county={{ item }}">{{ item }}</a></li>
+                    <li><a href="?county={{ item }}">{{ item }}</a></li>
                   {% else %}
                     {% set urlcity = item.replace(' (City)','') %}
-                    <li><a href="?src={{ data.src }}&city={{ urlcity }}">{{ item }}</a></li>
+                    <li><a href="?city={{ urlcity }}">{{ item }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ul>
@@ -136,11 +136,7 @@
             <div class= "col-sm-4 text-left">
               <h2 id="place">{{ data.titlename }}</h2>
               <h4 id="datasource"></h4>
-
               <img id='dataicon'>
-              <!-- {% if data.src == "ED" %}
-                <img src = "/static/markers/hospital_icon_blues.svg" alt = "hospital represents ED data">
-              {% endif %} -->
             </div>
             <div class="col-sm-4">
               <div class="row vbottom">

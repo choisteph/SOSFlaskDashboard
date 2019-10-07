@@ -6,10 +6,10 @@ MEcounties = ['Allegan','Barry','Benzie','Berrien','Branch',
     'Gratiot','Hillsdale','Huron','Ingham','Ionia',
     'Iron','Isabella','Kalamazoo','Kent','Lake',
     'Leelanau','Lenawee','Livingston','Manistee','Mason',
-    'Mecosta','Missaukee','Montcalm','Muskegon','Newaygo',
-    'Osceola','Ottawa','Roscommon','Saginaw','Shiawassee',
-    'St. Joseph','Tuscola','Van Buren','Washtenaw','Wayne',
-    'Wexford']
+    'Mecosta','Missaukee','Monroe','Montcalm','Muskegon',
+    'Newaygo','Osceola','Ottawa','Roscommon','Saginaw',
+    'Shiawassee','St. Joseph','Tuscola','Van Buren','Washtenaw',
+    'Wayne','Wexford']
 
 src_dict = {'EMS':'EMS', 'ED':'Emergency Departments', 'ME':'Medical Examiner'}
 race_dict = {'B':'Black',
@@ -215,7 +215,7 @@ center_dict = { "cities" :
     },
     'Alger': {
         'center': '{lat:46.42, lng:-86.49}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 950,
         'minheight': 600
     },
@@ -281,7 +281,7 @@ center_dict = { "cities" :
     },
     'Charlevoix': {
         'center': '{lat:45.48, lng:-85.22}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 400,
         'minheight': 400
     },
@@ -292,7 +292,7 @@ center_dict = { "cities" :
     },
     'Chippewa': {
         'center': '{lat:46.34, lng:-84.36}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 650,
         'minheight': 500
     },
@@ -343,7 +343,7 @@ center_dict = { "cities" :
     },
     'Gogebic': {
         'center': '{lat:46.43, lng:-89.70}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 550,
         'minheight': 400
     },
@@ -364,7 +364,7 @@ center_dict = { "cities" :
     },
     'Houghton': {
         'center': '{lat:46.85, lng:-88.61}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 300,
         'minheight': 500
     },
@@ -420,7 +420,7 @@ center_dict = { "cities" :
     },
     'Keweenaw': {
         'center': '{lat:47.70, lng:-88.49}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 600,
         'minheight': 550
     },
@@ -456,7 +456,7 @@ center_dict = { "cities" :
     },
     'Mackinac': {
         'center': '{lat:45.98, lng:-84.99}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 650,
         'minheight': 300
     },
@@ -472,7 +472,7 @@ center_dict = { "cities" :
     },
     'Marquette': {
         'center': '{lat:46.45, lng:-87.62}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 400,
         'minheight': 500
     },
@@ -488,7 +488,7 @@ center_dict = { "cities" :
     },
     'Menominee': {
         'center': '{lat:45.54, lng:-87.58}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 250,
         'minheight': 500
     },
@@ -544,7 +544,7 @@ center_dict = { "cities" :
     },
     'Ontonagon': {
         'center': '{lat:46.68, lng:-89.38}',
-        'zoom': 9,
+        # 'zoom': 9,
         'minwidth': 400,
         'minheight': 400
     },

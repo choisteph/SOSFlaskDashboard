@@ -129,7 +129,7 @@ def navtocorrect():
       'src': source,
       'f_geojson': f'geojson/{folder}/{placename}.geojson',
       'center': center_dict[folder][placename]['center'],
-      'zoom': center_dict[folder][placename].get('zoom', 10),
+      'zoom': center_dict[folder][placename].get('zoom', 11),
       'names': names,
       'counties': counties,
       'placetype': folder.replace('ies','y'),

@@ -5,12 +5,26 @@ function makeTimeSeries() {
     dataDate = dateGrp.all();
     movingAvgData = movingAverage(dataDate, 7);
 
+    let formatHour = d3.timeFormat("%I %p"),
+        formatDay = d3.timeFormat("%a %d"),
+        formatWeek = d3.timeFormat("%b %d"),
+        formatMonth = d3.timeFormat("%b"),
+        formatYear = d3.timeFormat("%Y");
+
+    // Define filter conditions
+    function multiFormat(date) {
+      return (d3.timeDay(date) < date ? formatHour
+            : d3.timeMonth(date) < date ? (d3.timeWeek(date) < date ? formatDay : formatWeek)
+            : d3.timeYear(date) < date ? formatMonth
+            : formatYear)(date);
+    }
+
     // set the dimensions and margins of the graph
-    margin = {top: 20, right: 30, bottom: 100, left: 50},
-    width = 900 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-    margin2 = {top: 300-70, right: 30, bottom: 30, left: 50},
-    height2 = 300 - margin2.top - margin2.bottom;
+    margin = {top: 20, right: 30, bottom: 100, left: 50}
+    width = 900 - margin.left - margin.right
+    height = 300 - margin.top - margin.bottom
+    margin2 = {top: 300-70, right: 30, bottom: 30, left: 50}
+    height2 = 300 - margin2.top - margin2.bottom
 
     // append timetable svg
     svg = d3.select(".timetable").append("svg")
@@ -18,15 +32,15 @@ function makeTimeSeries() {
         .attr("height", height + margin.top + margin.bottom)
 
     // set the ranges
-    x = d3.scaleTime().range([0, width]),
-    y = d3.scaleLinear().range([height, 0]),
-    x2 = d3.scaleTime().range([0, width]),
-    y2 = d3.scaleLinear().range([height2, 0]);
+    x = d3.scaleTime().range([0, width])
+    y = d3.scaleLinear().range([height, 0])
+    x2 = d3.scaleTime().range([0, width])
+    y2 = d3.scaleLinear().range([height2, 0])
 
     // sets ticks for timetable graph
-    xAxis = d3.axisBottom(x)
+    xAxis = d3.axisBottom(x).tickFormat(multiFormat)
     yAxis = d3.axisRight(y).ticks(3)
-    xAxis2 = d3.axisBottom(x2);
+    xAxis2 = d3.axisBottom(x2).tickFormat(multiFormat)
 
     // Add brush in x-dimension
     brush = d3.brushX()
@@ -223,12 +237,7 @@ function resampleDates(data) {
 function changeDate(T) {
     endDate = d3.timeDay.offset(d3.max(dataDate, d => d.key),1)
     x.domain([d3.min(dataDate, d => d.key), endDate]);
-
-    beginDate = T == '1W' ? d3.timeDay.offset(endDate, -7) :
-                T == '2W' ? d3.timeDay.offset(endDate, -14) :
-                T == "1M" ? d3.timeMonth.offset(endDate, -1) :
-                T == "3M" ? d3.timeMonth.offset(endDate, -3) :
-                T == "YTD" ? d3.timeYear(new Date) : null
+    beginDate = d3.timeDay.offset(endDate, -1*T)
 
     selection.attr("class", "brush")
         .call(brush)

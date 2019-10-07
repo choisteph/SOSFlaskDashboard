@@ -30,6 +30,13 @@ function createMap() {// Mapbox section
     featureLayer = L.mapbox.featureLayer().addTo(map);
     const citycountyLayer = L.mapbox.featureLayer(county_geojson, {style : style}).addTo(map);
 
+    const svgIcon = 'green_circle.svg'
+    srcIcon = L.icon({
+      iconUrl: '/static/markers/' + svgIcon,
+      iconSize: [16,16], // size of the icon
+      iconAnchor: [8,8], // point of the icon which will correspond to marker's location
+    });
+
     latDim = CF.dimension(d => d.lat)
     lngDim = CF.dimension(d => d.lng)
     drawMarkers();
@@ -46,10 +53,10 @@ function drawMarkers() {
     for (let pt of latDim.top(Infinity)) {
         const offset = (x.domain()[1] - pt.date) / 86400000;
         featureLayer.addLayer(L.marker([pt.lat, pt.lng], {
-            icon: tableIcon,
+            icon: srcIcon,
             opacity: d3.max([1 - (offset-1)/days, 0]),
           })
-          .bindPopup(`<p>${formatDate(pt.date)}<br>${pt.county}<br>${pt.Age}, ${pt.Race}, ${pt.Gender}</p>`))
+          .bindPopup(`<p>${formatDate(pt.date)}<br>${pt.Age}, ${pt.Gender}</p>`))
       };
 };
 

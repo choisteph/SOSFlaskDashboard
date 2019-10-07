@@ -53,7 +53,7 @@ function updateAll(updateCharts = true) {
 
 // Calculate descriptive statistics
 function summaryStats(dayRange=x.domain()) {
-    const days = (dayRange[1] - dayRange[0]) / 86400000
+    const days = numDays()
     const prevDayRange = [d3.timeDay.offset(dayRange[0],-days), dayRange[0]];
     dateDim.filter(prevDayRange)
     const N0 = CF.groupAll().value()
@@ -77,21 +77,21 @@ function summaryStats(dayRange=x.domain()) {
     };
 
 function colorCodePct(data){
-    return data.includes("+") ? 'color:red' :
-           data.includes("-") ? 'color:green' :
-                                'color:black' ;
+    return data.includes("+") ? 'color:red'
+        : data.includes("-") ? 'color:green'
+        : 'color:black' ;
 };
 
 function colorCode(data){
-    return data > 0 ? 'color:red' :
-           data < 0 ? 'color:green' :
-                      'color:black' ;
+    return data > 0 ? 'color:red'
+        : data < 0 ? 'color:green'
+        : 'color:black' ;
 };
 
 function arrowUpDown(data){
-    return data > 0 ? `<i class= "fa fa-arrow-up"></i> ${data}` :
-           data < 0 ? `<i class ="fa fa-arrow-down"></i> ${Math.abs(data)}` :
-                      `${data}` ;
+    return data > 0 ? `<i class= "fa fa-arrow-up"></i> ${data}`
+        : data < 0 ? `<i class ="fa fa-arrow-down"></i> ${Math.abs(data)}`
+        : `${data}` ;
 };
 
 function resetAll() {
@@ -102,17 +102,7 @@ function resetAll() {
 };
 
 function changeSrc() {
-    const svgIcon = src === 'EMS' ? 'ambulance_icon_blues.svg' : 'morguetable_5.svg'
-    const txtIcon = src === 'EMS' ? 'ambulance' : 'morgue table'
-    tableIcon = L.icon({
-      iconUrl: '/static/markers/' + svgIcon,
-      iconSize: [25,25], // size of the icon
-      iconAnchor: [15,15], // point of the icon which will correspond to marker's location
-    });
     d3.select('#datasource').text( () => src === 'EMS' ? `EMS Naloxone Administrations - SIMULATED` : 'Suspected Drug Related Deaths - SIMULATED')
-    d3.select('#dataicon')
-        .attr('src',`/static/markers/${svgIcon}`)
-        .attr('alt',`${txtIcon} represents ${src} data`)
     srcDim.filter(d => d === src)  
 }
 

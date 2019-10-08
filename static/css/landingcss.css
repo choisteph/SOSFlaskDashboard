@@ -242,7 +242,7 @@ footer .container{
 
 .descriptor{
     display: block;
-    line-height: 2.5;
+    font-size: 14pt;
     margin-bottom: 0px;
 }
 
@@ -274,7 +274,7 @@ footer .container{
 }
 
 .sourcemargin{
-    margin-left: 14pt;
+    margin-left: 45px;
 }
 
 .contacttext{

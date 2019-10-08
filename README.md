@@ -10,6 +10,7 @@
 
 ### HTML pages use bootstrap CDN
 Coded by [Stephanie Choi](https://github.com/choisteph)
+
 Referenced during creation of html page templates:
   - [Bootstrap Documentation](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
   - [W3 Schools Bootstrap 4 Tutorials](https://www.w3schools.com/bootstrap4/bootstrap_get_started.asp)

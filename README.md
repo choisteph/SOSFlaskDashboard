@@ -9,11 +9,12 @@
   - [Original Repo](https://github.com/caocscar/opioid-web)
 
 ### HTML pages use bootstrap CDN
+Coded by [Stephanie Choi](https://github.com/choisteph)
 Referenced during creation of html page templates:
   - [Bootstrap Documentation](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
   - [W3 Schools Bootstrap 4 Tutorials](https://www.w3schools.com/bootstrap4/bootstrap_get_started.asp)
   - [Stack Overflow Threads such as this](https://stackoverflow.com/questions/29258382/bootstrap-align-divs-to-top-middle-and-bottom)
-Coded by [Stephanie Choi](https://github.com/choisteph).
+
 
 ### Scripts draw information from files in data and geojson folders
   - Mapbox/Leaflet-Mapbox, items in data folder (geojson, csv, topojson), and time series created by and lifted from [Alex Cao](https://github.com/caocscar)

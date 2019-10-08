@@ -161,12 +161,6 @@ h6{
     padding-top: 15px;
 }
 
-/* footer{
-    position: relative;
-    bottom:0;
-    background-color: #00274c;
-    width: 100vw;
-} */
 .footer{
     background-color: #00274c !important;
     width: inherit;

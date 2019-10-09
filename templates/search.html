@@ -59,8 +59,7 @@
     <div class="row content">
       <div class="col-sm-12 bodystuff">
         <h2 class="header text-center">SOS Authorized User Dashboard</h2>
-        <div class="container-fluid">
-          <div class="row align-self-center">
+          <div class="row d-flex align-items-center justify-content-center">
               <div class="col-sm-6">
                   <div class="row datasourceselect">
                       <div class="col-sm-12 d-flex justify-content-center align-items-center">
@@ -76,7 +75,7 @@
                 <div class = "row search">
                     <div class="col-sm-12 d-flex justify-content-center align-self-center">
                       <form class = "form-inline formthing" onsubmit="navPlace()">
-                        <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text">
+                        <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text" required>
                         <button type="submit"><i class="fa fa-search"></i></button>
                       </form>
                     </div>
@@ -90,22 +89,16 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 
   <!-- footer -->
   <footer class="footer mt-auto py-3">
     <div class="container-fluid">
-      <div class="row logos d-flex align-items-center justify-content-around">
-          <a href="https://injurycenter.umich.edu/" target="_blank">
-            <img class="bottomIPC" src="/static/images/IPC.png">
-          </a>
-          <img class="bottomSOS" src="/static/images/SOS.png">
-          <img class="bottomHIDTA" src="/static/images/hidta.png">
-      </div>
-      <div class="row">
-          <div class="col-sm-12 text-right d-flex justify-content-end">
-              <p>Copyright &copy 2019 The Regents of the University of Michigan</p>
+      <div class="row logos d-flex align-items-center justify-content-between">
+        <a href="https://injurycenter.umich.edu/" target="_blank">
+          <img class="bottomIPC" src="/static/images/IPC.png">
+        </a>
+        <p>&copy 2019 The Regents of the University of Michigan</p>
             </div>
         </div>
     </div>

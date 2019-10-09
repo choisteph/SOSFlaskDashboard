@@ -45,3 +45,14 @@
 .agreementcheck{
     padding-right: 5px;
 }
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.buttonpadded{
+    padding: 5px;
+}

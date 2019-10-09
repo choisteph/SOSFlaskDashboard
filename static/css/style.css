@@ -323,7 +323,7 @@ footer{
 
 
 .logos{
-  padding-bottom: 10px;
+  padding: 0px;
 }
 
 table i{
@@ -380,4 +380,15 @@ table i{
 }
 .bottomHIDTA{
   height: 100px;
+}
+.mapdisclaimer{
+  font-style: oblique;
+  padding: 0px;
+  margin: 0px;
+}
+
+.pinexplain{
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
 }

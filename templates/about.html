@@ -25,6 +25,7 @@
   <!-- general style -->
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/landingcss.css">
+  <link rel="stylesheet" href="/static/css/aboutcss.css">
 
   <!--Google Fonts Noto Sans-->
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -35,45 +36,32 @@
   <!-- accessibility skip to main tab index -->
   <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-  <header>
-    <div class="header container-fluid">
-      <div class="row">
-        <div class="col-sm-12 d-flex justify-content-between align-items-center">
-          <a href="https://injurycenter.umich.edu/" target="_blank">
-            <img class="topIPC" src="/static/images/IPC.png">
-          </a>
-          <div class="otherlogos">
-            <img class="topSOS" src="/static/images/SOS.png">
-            <img class="topHIDTA" src="/static/images/hidta.png">
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </header>
-
   <!-- top navigation -->
   
-<nav class = "navbar navbar-expand-sm sticky-top">
-    <ul class = "navbar-nav ml-auto">
-        <li class="nav-item">
+  <nav class = "navbar navbar-expand-sm sticky-top">
+      <a class="navbar-brand" href="https://injurycenter.umich.edu/" target="_blank">
+          <img class="topIPC" src="/static/images/IPC.png">
+      </a>
+        <ul class = "navbar-nav ml-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="/">HOME</a>
-        </li>
-        <li class = "nav-item">
-          <a class="nav-link current" href="/about">ABOUT</a>
-        </li>
-        <li class = "nav-item">
-          <a class="nav-link" href="/contact">CONTACT US</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
-        </li>
-    </ul> 
-</nav>
-  <div class="container-fluid container-top-buffer">
+            </li>
+            <li class = "nav-item">
+              <a class="nav-link  current" href="/about">ABOUT</a>
+            </li>
+            <li class = "nav-item">
+              <a class="nav-link" href="/contact">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a>
+            </li>
+        </ul> 
+  </nav>
+
+  <div class="container-fluid container-top-buffer all">
     <div class="row">
-      <div class="col-sm-1"></div>
-      <div class = "col-sm-10 allstuff">
+      <div class="col-sm-2"></div>
+      <div class = "col-sm-8 allstuff">
         <div class= "allabout row content d-flex justify-content-center align-items-center">
           <div class = "col-sm-8">
            
@@ -82,35 +70,33 @@
             </div>
             <div class="aboutSOS">
                 <p class="text-left">SOS is a near real-time opioid overdose surveillance system created through a partnership between the University of Michigan Injury Prevention Center and Michigan High Intensity Drug Trafficking Areas (HIDTA).  
-                </p>
-                <p class="text-left">SOS provides near real-time mapping of non-fatal and fatal overdose cases, as well as aggregate data briefs, to facilitate timely public health and public safety responses. 
+                SOS provides near real-time mapping of non-fatal and fatal overdose cases as well as aggregate data briefs to facilitate timely public health and public safety responses. 
                 </p>
             </div>
             <div class="datasources">
-                <p class="text-left">
-                        Data sources: <br>
-                        <u>Emergency Medical Services (EMS)</u> data is obtained through the <b>Michigan EMS Information System (MI-EMSIS)</b> and includes statewide cases of naloxone administration. Naloxone administration may not indicate an opioid overdose, as naloxone is commonly administered by first responders to any unresponsive patient. Naloxone administration incident and city location is displayed on the SOS map as reported by EMS agencies to MI-EMSIS. Not all EMS agencies report incidents on a real-time basis and cases may be under-reported.
-                    </p>
-                        <p class="text-left">
-                            <u>Fatal suspected overdose</u> data is obtained through the electronic death database, <b>Medicolegal Death Investigation Log (MDILog)</b> and <b>individual county medical examiners</b>. Suspected overdose cases are determined through death investigators and updated to SOS on a daily basis.<br><br>
-                        
-                            Generally, 90% of suspected fatal overdoses, are later confirmed to be drug related. In the future, SOS will be updated to reflect confirmed drug related deaths and include the specific drugs involved.<br><br>
-                            
-                            Due to the near-real time nature of SOS, all data collected is provisional and subject to change. Data may not always be complete and data should not be considered a definitive opioid overdose. All points on the map are approximate. 
-                        
+                <p class="text-left">Data sources:</p>
+                <p class="text-left sourcemargin">
+                    <u>Emergency Medical Services (EMS)</u> data is obtained through the <b>Michigan EMS Information System (MI-EMSIS)</b> and includes statewide cases of naloxone administration. Naloxone administration may not indicate an opioid overdose, as naloxone is commonly administered by first responders to any unresponsive patient. Naloxone administration incident and city location is displayed on the SOS map as reported by EMS agencies to MI-EMSIS. Not all EMS agencies report incidents on a real-time basis and cases may be under-reported.
+                </p>
+
+                <p class="text-left sourcemargin">
+                    <u>Fatal suspected overdose</u> data is obtained through the electronic death database, <b>Medicolegal Death Investigation Log (MDILog)</b> and <b>individual county medical examiners</b>. Suspected overdose cases are determined through death investigators and updated to SOS on a daily basis.      
+                </p>
+                <p class="text-left">  
+                    Generally, 90% of suspected fatal overdoses are later confirmed to be drug related. In the future, SOS will be updated to reflect confirmed drug related deaths and include the specific drugs involved. Due to the near-real time nature of SOS, all data collected is provisional and subject to change. Data may not always be complete and data should not be considered a definitive opioid overdose. All points on the map are approximate. 
                 </p>
             </div>
 
           </div>
         </div>
       </div>
-      <div class="col-sm-1"></div>
+      <div class="col-sm-2"></div>
     </div>
     <footer class="footer mt-auto py-3">
       <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 text-right d-flex justify-content-end">
-                <p>Copyright &copy 2019 The Regents of the University of Michigan</p>
+                <p>&copy 2019 The Regents of the University of Michigan</p>
               </div>
           </div>
       </div>

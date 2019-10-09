@@ -1,12 +1,17 @@
 *{
     font-family: 'Noto Sans', sans-serif;
 }
+
+body{
+    height: 100%;
+}
 .content{
     padding-top: 0px;
 }
 .navbar{
     background-color: #00274c;
 }
+
 
 .nav-item{
     padding: 0px 5px;
@@ -85,6 +90,7 @@ path.county:hover{
     padding: 0px;
     margin: 0px;
     display: inline-block;
+    padding-right: 2px;
 }
 
 .pleasereachout{
@@ -155,12 +161,6 @@ h6{
     padding-top: 15px;
 }
 
-footer{
-    position: relative;
-    bottom:0;
-    background-color: #00274c;
-    width: 100vw;
-}
 .footer{
     background-color: #00274c !important;
     width: inherit;
@@ -171,7 +171,7 @@ footer{
 }
 
 .footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
     right: 0;
     left: 0;
@@ -236,7 +236,7 @@ footer .container{
 
 .descriptor{
     display: block;
-    line-height: 2.5;
+    font-size: 14pt;
     margin-bottom: 0px;
 }
 
@@ -247,4 +247,30 @@ footer .container{
 
 .allabout{
     height: inherit;
+}
+
+.welcometext{
+    font-size: 36pt;
+    font-weight: 700 !important;
+}
+
+.label{
+    padding: 10px 0px;
+}
+
+.all{
+    height: 100%;
+    padding: 0px;
+}
+
+.rowpadded{
+    padding: 20px 0px;
+}
+
+.sourcemargin{
+    margin-left: 45px;
+}
+
+.contacttext{
+    font-size: 20pt;
 }

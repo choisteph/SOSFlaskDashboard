@@ -32,7 +32,7 @@ async function makeMichMap(svgname, filename, ME=false) {
         .attr("data-toggle", "tooltip")
         .attr("data-placement", "top")
 
-    const MItopo = await d3.json('static/geojson/gz_2010_us_050_00_5m_MI_counties.topojson')
+    const MItopo = await d3.json('static/geojson/counties_v17a_pop.topojson')
     // convert to geojson
     const MIgeo = topojson.feature(MItopo, MItopo.objects.collection)
 

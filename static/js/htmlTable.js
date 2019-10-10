@@ -33,25 +33,25 @@ function formatHTMLthings(d){
 };
 
 function getSortedData(sortColumn){
-  selection = d3.select(`.${sortColumn}`).select('i')
+  const column = d3.select(`.${sortColumn}`).select('i')
   if (sortColumn == "date") {
-      return selection.classed(descending) ? dateDim.top(Infinity)
-                                           : dateDim.bottom(Infinity);
+      return column.classed(descending) ? dateDim.top(Infinity)
+                                        : dateDim.bottom(Infinity);
   } else if (sortColumn == "city"){
-      return selection.classed(descending) ? cityDim.top(Infinity)
-                                           : cityDim.bottom(Infinity);
+      return column.classed(descending) ? cityDim.top(Infinity)
+                                        : cityDim.bottom(Infinity);
   } else if (sortColumn == "county"){
-      return selection.classed(descending) ? countyDim.top(Infinity)
-                                           : countyDim.bottom(Infinity);
+      return column.classed(descending) ? countyDim.top(Infinity)
+                                        : countyDim.bottom(Infinity);
   } else if (sortColumn == "Age") {
-      return selection.classed(descending) ? ageDim.top(Infinity)
-                                           : ageDim.bottom(Infinity);
+      return column.classed(descending) ? ageDim.top(Infinity)
+                                        : ageDim.bottom(Infinity);
   } else if (sortColumn == "Gender") {
-      return selection.classed(descending) ? genderDim.top(Infinity)
-                                           : genderDim.bottom(Infinity);
+      return column.classed(descending) ? genderDim.top(Infinity)
+                                        : genderDim.bottom(Infinity);
   } else if (sortColumn == "Race") {
-      return selection.classed(descending) ? raceDim.top(Infinity)
-                                           : raceDim.bottom(Infinity);
+      return column.classed(descending) ? raceDim.top(Infinity)
+                                        : raceDim.bottom(Infinity);
   }
 };
 

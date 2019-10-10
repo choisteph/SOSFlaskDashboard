@@ -24,7 +24,7 @@ async function makeMichMap(svgname, filename, ME=false) {
     let prop = {}
     prop['ct'] = d.value
     prop['pop'] = population[d.county]
-    prop['rate'] = prop['ct'] / prop['pop']
+    prop['rate'] = prop['ct'] / prop['pop'] * 1000
     rateArray.push(prop['rate'])
     countyProp[d.county] = prop    
   })

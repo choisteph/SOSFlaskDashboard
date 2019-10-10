@@ -17,7 +17,7 @@ async function make_map(svgname) {
       .attr("data-toggle", "tooltip")
       .attr("data-placement", "top")
 
-  const MItopo = await d3.json('static/geojson/counties_v17a_pop.topojson')
+  const MItopo = await d3.json('static/geojson/counties_v17a.topojson')
   const cities = await d3.csv('static/data/cities.csv')
   // convert to geojson
   const MIgeo = topojson.feature(MItopo, MItopo.objects.collection)

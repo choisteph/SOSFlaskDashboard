@@ -105,11 +105,14 @@
           <button class="srcbutton" onclick="updateSrc('ME')"> ME </button>
         </div>
         <h5 class="sidenavlabel">County or City of Interest:</h5>
+        <!-- <form class = "form-inline formthing" onsubmit="navPlace()">
+            <input class="form-control autocomplete form-inline" method="GET" autocomplete="off" id="searchthing" placeholder="City or County Name" aria-label="Search" type="text" required>
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form> -->
+
         <div id="accordion" class="accordion">
-          <!-- accordion has extra styling rules in style.css -->
           <div class="panel list-group">
           {% for letter in data.names %}
-          <!-- add each place to the sidenav under appropriate alphabet -->
             <a href="#{{ letter }}-sec" data-parent="#accordion" data-toggle="collapse" class="list-group-item-action accordion-toggle collapsed">
               {{ letter }}
             </a>
@@ -128,7 +131,9 @@
           {% endfor %}
           </div>
         </div>
+
       </div>
+      
       <!-- screen view  content -->
       <div class="col-sm-11 text-center"  id="content" tabindex="-1">
         <!-- sticky information bar, with variables inserted through flask -->
@@ -284,7 +289,7 @@
     zoomMapbox = {{ data.zoom }};
     src = "{{ data.src }}";
     // populate data graphics
-    makeDashboard("/static/data/map_fake.csv", "{{ data.placename }}", "{{ data.placetype }}");
+    makeDashboard("/static/data/map_fake_100000.csv", "{{ data.placename }}", "{{ data.placetype }}");
 </script>
 </body>
 </html>

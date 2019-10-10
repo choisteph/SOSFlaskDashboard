@@ -14,6 +14,10 @@
   font-size: 15px !important;
 }
 
+.tooltip p{
+  color: white !important;
+}
+
 path.county {
   stroke: #fff !important;
 }
@@ -39,12 +43,10 @@ circle.city {
 
 #michEms .county {
 fill: #587abc;
-fill-opacity: 0.9;
 cursor: default !important;
 }
 #michMe .county{
   fill: #575294;
-  fill-opacity: 0.9;
   cursor: default !important;
 }
 

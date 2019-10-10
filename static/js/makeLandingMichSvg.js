@@ -30,13 +30,13 @@ async function makeMichMap(svgname, filename, ME=false) {
   })
 
   let colorScheme
-  const k = 5
+  const k = 6
   if (svgname === michEms){
       d3.select('#totalEms').text(`${TOTAL}`)
-      colorScheme = d3.schemePurples[k]
+      colorScheme = d3.schemePurples[k].slice(1)
   } else {
       d3.select('#totalMe').text(`${TOTAL}`)
-      colorScheme = d3.schemeBlues[k]
+      colorScheme = d3.schemeBlues[k].slice(1)
   }
 
   const MItopo = await d3.json('static/geojson/counties_v17a.topojson')

@@ -13,36 +13,30 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
     svgAge = d3.select("#age")
         .attr("width", widthAge + marginAge.left + marginAge.right)
         .attr("height", heightAge + marginAge.top + marginAge.bottom)
-        .append("g")
-        .attr("transform", "translate(" + marginAge.left + "," + marginAge.top + ")");
-
+      .append("g")
+        .attr("transform", `translate(${marginAge.left},${marginAge.top})`)
 
     // set the x and y axis of the age graph
     xAge = d3.scaleLinear()
+        .domain([0, d3.max(dataAge, d => d.value)])
         .range([widthAge, 0])
     yAge = d3.scaleBand()
         .padding(0.2)
-        .range([0, heightAge]);
-
-    xAge.domain([0, d3.max(dataAge, d => d.value)]);
-
-    yAge.domain(dataAge.map(d => d.key));
-
-    yAxis1 = d3.axisRight()
-        .scale(yAge);
+        .domain(dataAge.map(d => d.key))
+        .range([0, heightAge])
+    let yAxisAge = d3.axisRight()
+        .scale(yAge)
 
     // append bars to age graph
     barsAge = svgAge.selectAll(".graph")
-        .data(dataAge)
-        .enter().append("rect")
+      .data(dataAge)
+      .enter().append("rect")
         .attr("class", "barAge")
         .attr("y", d => yAge(d.key))
         .attr("height", yAge.bandwidth())
         .attr("x", d => xAge(d.value))
         .attr("width", d => widthAge - xAge(d.value))
         .style("fill", '#FB9A99')
-
-        // onclick
         .on('click', function(d) {
             // if clicked, filter table
             if (ageArray.includes(d.key)) {
@@ -58,10 +52,7 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
                     .attr('stroke', '#95dfb3');
                 ageArray.push(d.key);
             }
-            // if unclicked
             ageArray.length > 0 ? ageDim.filter(d => ageArray.includes(d)) : ageDim.filterAll()
-
-            // updates graphs
             updateAll();
         });
 
@@ -78,7 +69,7 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
     // adds text on y axis for age graph
     svgAge.append("g")
         .attr("class", "y")
-        .call(yAxis1)
+        .call(yAxisAge)
         .attr("transform", `translate(${widthAge},0)`)
       .selectAll(".tick text")
         .attr("x", 10)
@@ -92,7 +83,7 @@ function makeAgeChart() {// set up dimensions of age horizontal bar graph
     svgAge.append("g")
         .attr("class","x")
         .attr("transform", `translate(0,${heightAge})`)
-        .call(d3.axisBottom(xAge) .ticks(5))
+        .call(d3.axisBottom(xAge).ticks(6))
       .selectAll(".tick text")
         .style("font-size","16px")
         .attr("y", 10);
@@ -105,7 +96,7 @@ function updateAge() {
 
     xAge.domain([0, xmax]);
     svgAge.select(".x")
-        .transition().duration(T*0.5)
+      .transition().duration(T*0.5)
         .call(d3.axisBottom(xAge).ticks(6))
       .selectAll(".tick text")
         .style("font-size","16px")

@@ -3,7 +3,7 @@ function makeTimeSeries() {
     dateDim = CF.dimension(d => d.date)
     dateGrp = dateDim.group();
     dataDate = dateGrp.all();
-    movingAvgData = movingAverage(dataDate, 7);
+    const movingAvgData = movingAverage(dataDate, 7);
 
     let formatHour = d3.timeFormat("%I %p"),
         formatDay = d3.timeFormat("%a %d"),
@@ -159,7 +159,7 @@ function updateTimeSeries() {
         .attr("height", d => height2 - y2(d.value))
 
     // line transition
-    movingAvgData = movingAverage(dataDate, 7)
+    const movingAvgData = movingAverage(dataDate, 7)
     avgLine1.datum(movingAvgData)
       .transition().ease(easeFunc).duration(T)
         .attr('d', movingAvg1)
@@ -202,9 +202,8 @@ function brushended() {
         dayRange[0] = d3.timeDay.floor(dateRange[0]);
         dayRange[1] = d3.timeDay.offset(dayRange[0]);
     }
-    d3.select(this).transition()
-        .call(d3.event.target.move, dayRange.map(x2));
-
+    xBrush.transition()
+        .call(brush.move, dayRange.map(x2));
     updateAll();
 };
 // calculates simple moving average over N days
@@ -226,8 +225,8 @@ function movingAverage(data, N) {
 // resamples dates to make sure there are no missing dates
 function resampleDates(data) {
     const startDate = d3.min(data, d => d.key)
-    const endDate = d3.max(data, d => d.key)
-    const dateRange = d3.timeDay.range(startDate, d3.timeDay.offset(endDate,1), 1)
+    const finishDate = d3.max(data, d => d.key)
+    const dateRange = d3.timeDay.range(startDate, d3.timeDay.offset(finishDate,1), 1)
     return dateRange.map(day => {
       return data.find(d => d.key >= day && d.key < d3.timeHour.offset(day,1)) || {'key':day, 'value':0}
     })

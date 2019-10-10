@@ -25,35 +25,30 @@ function makeRaceChart() {
     svgRace = d3.select("#race")
         .attr("width", widthRace + marginRace.left + marginRace.right)
         .attr("height", heightRace + marginRace.top + marginRace.bottom)
-        .append("g")
-        .attr("transform", "translate(" + marginRace.left + "," + marginRace.top + ")");
+      .append("g")
+        .attr("transform", `translate(${marginRace.left},${marginRace.top})`)
 
     // sets the x and y axis of the race graph
     xRace = d3.scaleLinear()
+        .domain([0, d3.max(dataRace, d => d.value)])
         .range([0, widthRace])
     yRace = d3.scaleBand()
         .padding(0.2)
-        .range([0, heightRace]);
-
-    // sets domain of race graph
-    xRace.domain([0, d3.max(dataRace, d => d.value)]);
-    yRace.domain(dataRace.map(d => d.key));
-
-    // scales the yAxis race graph
-    yAxisRace = d3.axisLeft()
+        .domain(dataRace.map(d => d.key))
+        .range([0, heightRace])
+    let yAxisRace = d3.axisLeft()
         .scale(yRace);
 
     // adds bars for race graph
     barsRace = svgRace.selectAll(".graph")
-        .data(dataRace)
-    .enter().append("rect")
+      .data(dataRace)
+      .enter().append("rect")
         .attr("class", "bar1")
         .attr("y", d=>yRace(d.key))
         .attr("height", yRace.bandwidth())
         .attr("x", 0)
         .attr("width", d=>xRace(d.value))
         .style("fill",'#CAB2D6')
-
         .on('click', function(d) {
             if (raceArray.includes(d.key)) {
                 d3.select(this)
@@ -69,7 +64,6 @@ function makeRaceChart() {
                 raceArray.push(d.key);
             }
             raceArray.length > 0 ? raceDim.filter(d => raceArray.includes(d)) : raceDim.filterAll()
-
             updateAll();
         });
 
@@ -99,13 +93,12 @@ function makeRaceChart() {
     svgRace.append("g")
         .attr("class", "x")
         .attr("transform", `translate(0,${heightRace})`)
-        .call(d3.axisBottom(xRace))
+        .call(d3.axisBottom(xRace).ticks(6))
       .selectAll(".tick text")
         .style("font-size","16px")
         .attr("y", 15);
 };
 
-// update race bars
 function updateRace() {
     const xmax = d3.max([5, d3.max(dataRace, d => d.value)])
     const easeFunc = d3.easeQuad;
@@ -113,8 +106,8 @@ function updateRace() {
 
     xRace.domain([0, xmax]);
     svgRace.select(".x")
-        .transition().duration(T*0.5)
-        .call(d3.axisBottom(xRace) .ticks(6))
+      .transition().duration(T*0.5)
+        .call(d3.axisBottom(xRace).ticks(6))
       .selectAll(".tick text")
         .style("font-size","16px")
 
@@ -127,35 +120,6 @@ function updateRace() {
         .text(d => d.value);
 };
 
-// wraps axis text to two lines
-function wrap(text, width) {
-    text.each(function() {
-        var text = d3.select(this),
-            words = text.text().split(/\s+/).reverse(),
-            word;
-
-        if (words.length != 1 && words.length != 3) {
-            var line = [],
-            lineNumber = 0,
-            lineHeight = 0.7, // ems
-            y = text.attr("y"),
-            dy = parseFloat(text.attr("dy")),
-            tspan = text.text(null).append("tspan").attr("x", -15).attr("y", y - 14).attr("dy", dy + "em");
-
-            while (word = words.pop()) {
-                line.push(word);
-                tspan.text(line.join(" "));
-                if (tspan.node().getComputedTextLength() > width) {
-                    line.pop();
-                    tspan.text(line.join(" "));
-                    line = [word];
-                    tspan = text.append("tspan").attr("x", -15).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-                }
-            }
-        }
-    });
-};
-
 function resetRace() {
     raceArray = [];
     raceDim.filterAll();
@@ -163,4 +127,33 @@ function resetRace() {
         .attr('stroke', '')
         .attr('stroke-width', 0);
     updateAll();
+};
+
+// wraps axis text to two lines
+function wrap(text, width) {
+  text.each(function() {
+      var text = d3.select(this),
+          words = text.text().split(/\s+/).reverse(),
+          word;
+
+      if (words.length != 1 && words.length != 3) {
+          var line = [],
+          lineNumber = 0,
+          lineHeight = 0.7, // ems
+          y = text.attr("y"),
+          dy = parseFloat(text.attr("dy")),
+          tspan = text.text(null).append("tspan").attr("x", -15).attr("y", y - 14).attr("dy", dy + "em");
+
+          while (word = words.pop()) {
+              line.push(word);
+              tspan.text(line.join(" "));
+              if (tspan.node().getComputedTextLength() > width) {
+                  line.pop();
+                  tspan.text(line.join(" "));
+                  line = [word];
+                  tspan = text.append("tspan").attr("x", -15).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+              }
+          }
+      }
+  });
 };

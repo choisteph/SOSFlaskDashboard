@@ -137,7 +137,7 @@ function makeTimeSeries() {
     // add the context brush
     beginDate = d3.timeDay.offset(endDate, -7)
 
-    selection = context.append("g")
+    xBrush = context.append("g")
         .attr("class", "brush")
         .call(brush)
         .call(brush.move, [x(beginDate), x(endDate)]) // initialize brush selection
@@ -202,8 +202,7 @@ function brushended() {
         dayRange[0] = d3.timeDay.floor(dateRange[0]);
         dayRange[1] = d3.timeDay.offset(dayRange[0]);
     }
-    d3.select(this)
-      .transition()
+    d3.select(this).transition()
         .call(d3.event.target.move, dayRange.map(x2));
 
     updateAll();
@@ -236,13 +235,8 @@ function resampleDates(data) {
 
 function changeDate(T) {
     endDate = d3.timeDay.offset(d3.max(dataDate, d => d.key),1)
-    x.domain([d3.min(dataDate, d => d.key), endDate]);
     beginDate = d3.timeDay.offset(endDate, -1*T)
-
-    selection.attr("class", "brush")
-        .call(brush)
-        .call(brush.move, [x(beginDate), x(endDate)]) // initialize brush selection
-
+    xBrush.call(brush.move, [x2(beginDate), x2(endDate)])
     dateDim.filter([beginDate, endDate]);
     updateAll();
 };

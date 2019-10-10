@@ -147,8 +147,8 @@
     <script src= "/static/js/makeLandingMichSvg.js"></script>
     <script>
       let MEcounties = {{ data.MEcounties|safe }}
-      makeMichMap(michEms, "/static/data/emsData.csv");
       makeMichMap(michMe, "/static/data/meData.csv", ME=true);
+      makeMichMap(michEms, "/static/data/emsData.csv");
     </script>
 </body>
 </html>

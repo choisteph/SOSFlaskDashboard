@@ -46,8 +46,8 @@ async function makeMichMap(svgname, filename, ME=false) {
   // set up choropleth
   const rateFmt = d3.format('.3f')
   let quantile = d3.scaleQuantile()
-    .domain(rateArray)
-    .range(colorScheme)
+      .domain(rateArray)
+      .range(colorScheme)
 
   // D3 Projection
   let projection = d3.geoMercator()
@@ -68,8 +68,22 @@ async function makeMichMap(svgname, filename, ME=false) {
       .attr("data-html", true)
       .attr("title", d => {
           const name = d.properties.name
-          const ct = (!ME || MEcounties.includes(name)) ? '<br>count: '+ countyProp[name]['ct'] : ''
-          const rate = (!ME || MEcounties.includes(name)) ? '<br>rate per 1K: ' + rateFmt(countyProp[name]['rate']) : ''
+          let ct, rate
+          if (!ME || MEcounties.includes(name)) { // in ME list
+            ct = '<br>count: '
+            rate = '<br>rate per 1K: '
+            if (countyProp[name]) { // data exists
+              ct += countyProp[name]['ct']
+              rate += rateFmt(countyProp[name]['rate'])
+            } else { // no data exists
+              ct += 0
+              rate += rateFmt(0)
+              countyProp[name] = {'rate':0}
+            }
+          } else { // not in ME list
+            ct = '',
+            rate = ''
+          }
           return `<p>${name}${ct}${rate}</p>`
       })
       .style('fill', d => {

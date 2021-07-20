@@ -2,28 +2,17 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
-body{
+/* body{
     height: 100%;
-}
-.content{
-    padding-top: 0px;
-}
-.navbar{
-    background-color: #00274c;
-}
-
-
-.nav-item{
-    padding: 0px 5px;
-}
+} */
 span{
     color: white;
 }
 
-.container-top-buffer {
+/* .container-top-buffer {
     padding: 0px;
   }
-  
+   */
 h2{
     text-align: center;
     padding: 5px;
@@ -85,7 +74,7 @@ path.county:hover{
 
 .dataTotal{
     font-weight: bold;
-    font-size: 55pt;
+    font-size: 40pt;
     border-right: 1px solid #e8e8e8;
     padding: 0px;
     margin: 0px;
@@ -124,19 +113,9 @@ path.county:hover{
     font-size: 18px;
 }
 
-header{
+/* header{
     background-color: #00274c;
-}
-
-header .row{
-    padding: 10px 0px;
-}
-
-.row{
-    width: inherit !important;
-    margin: 0px;
-    padding: 0px;
-}
+} */
 
 .topIPC{
     height: 50px;
@@ -150,31 +129,18 @@ header .row{
 }
 
 .mapbg{
-    padding: 15px;
+    padding-bottom: 30px;
 }
 
 h6{
     font-weight: bold;
 }
 
+.dataCol{
+    padding: 0;
+}
 .whatInfo{
     padding-top: 15px;
-}
-
-.footer{
-    background-color: #00274c !important;
-    width: inherit;
-}
-
-.footer p{
-    color: white;
-}
-
-.footer{
-    position: relative;
-    bottom: 0;
-    right: 0;
-    left: 0;
 }
 
 .logosontop{
@@ -207,14 +173,14 @@ header{
 
 .countbox-ems{
     border: 2px solid #587abc;
-    padding: 5px;
-    margin: 5px;
+    padding: 15px;
+    /* margin: 10px; */
 }
 
 .countbox-me{
     border: 2px solid #575294;
-    padding: 5px;
-    margin: 5px;
+    padding: 15px;
+    /* margin: 10px; */
 }
 
 
@@ -229,14 +195,18 @@ header{
 .current{
     font-weight: bold;
 }
-footer .container{
+footer{
+    display: default !important;
+    width: 100%;
+}
+/* footer .container{
     padding: 0px !important;
     margin: 0px !important;
-}
+} */
 
 .descriptor{
     display: block;
-    font-size: 14pt;
+    font-size: 13pt;
     margin-bottom: 0px;
 }
 
@@ -258,14 +228,19 @@ footer .container{
     padding: 10px 0px;
 }
 
-.all{
-    height: 100%;
-    padding: 0px;
+.noShow{
+    width: 0;
+    height: 0;
 }
 
-.rowpadded{
+/* .all{
+    height: 100%;
+    padding: 0px;
+} */
+
+/* .rowpadded{
     padding: 20px 0px;
-}
+} */
 
 .sourcemargin{
     margin-left: 45px;

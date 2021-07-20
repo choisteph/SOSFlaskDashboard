@@ -1,4 +1,13 @@
+html, body{
+    height: 100%;
+}
+
+.parentContainer{
+    height: 100%;
+    padding-bottom: 20px;
+}
 .topRow{
+    height: 100%;
     padding-bottom: 20px;
 }
 .alert{
@@ -49,15 +58,10 @@
     padding-right: 5px;
 }
 
-/* .footer{
-    position: absolute;
+.footer{
+    position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
-} */
 
-footer{
-    width: 100%;
 }
 
 .buttonpadded{

@@ -13,6 +13,7 @@
   width: inherit;
   margin: 0px;
   padding-top: 10px;
+  padding-bottom: 20px;
 }
 .onemap {
   padding-bottom: 20px;
@@ -175,12 +176,12 @@ footer{
   color: white;
 }
 
-.footer{
+/* .footer{
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
-}
+} */
 
 .bottomIPC{
   height: 50px;

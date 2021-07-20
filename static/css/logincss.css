@@ -1,3 +1,6 @@
+.topRow{
+    padding-bottom: 20px;
+}
 .alert{
     padding-top: 55px;
     width: 100%;
@@ -46,11 +49,15 @@
     padding-right: 5px;
 }
 
-.footer{
+/* .footer{
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+} */
+
+footer{
+    width: 100%;
 }
 
 .buttonpadded{
